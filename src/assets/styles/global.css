@@ -12,13 +12,13 @@
 
 @theme {
   /* Decernia Brand Tokens */
-  --color-decernia-navy: #0F172A;       /* Hoofdachtergrond */
-  --color-decernia-surface: #1E293B;    /* Kaarten, headers, banners */
-  --color-decernia-border: #334155;     /* Randen & dividers */
-  --color-decernia-amber: #D97706;      /* Primaire actieknop / Accent */
-  --color-decernia-amber-hover: #B45309;/* Hover-state accent */
-  --color-decernia-text: #F8FAFC;       /* Titels & heldere tekst */
-  --color-decernia-muted: #94A3B8;      /* Lopende/subtiele tekst */
+  --color-decernia-navy: #0f172a; /* Hoofdachtergrond */
+  --color-decernia-surface: #1e293b; /* Kaarten, headers, banners */
+  --color-decernia-border: #334155; /* Randen & dividers */
+  --color-decernia-amber: #d97706; /* Primaire actieknop / Accent */
+  --color-decernia-amber-hover: #b45309; /* Hover-state accent */
+  --color-decernia-text: #f8fafc; /* Titels & heldere tekst */
+  --color-decernia-muted: #94a3b8; /* Lopende/subtiele tekst */
 }
 
 /* Basis html/body instellingen zonder !important hacks */

@@ -18,19 +18,19 @@ const storageKey = `banner-dismissed:${btnId}`;
     aria-label="Informational Banner"
   >
     <div
-      class="rounded-xl border border-decernia-border bg-decernia-surface bg-[url('/banner-pattern.svg')] bg-cover bg-center bg-no-repeat p-4 text-center shadow-lg"
+      class="border-decernia-border bg-decernia-surface rounded-xl border bg-[url('/banner-pattern.svg')] bg-cover bg-center bg-no-repeat p-4 text-center shadow-lg"
     >
       <div class="flex items-center justify-center">
         <div class="ml-auto flex items-center gap-x-2">
           {
             title && (
-              <p class="me-2 inline-block font-medium text-decernia-muted">
+              <p class="text-decernia-muted me-2 inline-block font-medium">
                 {title}
               </p>
             )
           }
           <a
-            class="group inline-flex items-center gap-x-2 rounded-full border border-decernia-amber bg-decernia-amber/10 px-4 py-2 text-sm font-semibold text-decernia-amber transition duration-300 hover:bg-decernia-amber hover:text-white focus:outline-hidden"
+            class="group border-decernia-amber bg-decernia-amber/10 text-decernia-amber hover:bg-decernia-amber inline-flex items-center gap-x-2 rounded-full border px-4 py-2 text-sm font-semibold transition duration-300 hover:text-white focus:outline-hidden"
             href={url}
             target="_blank"
           >
@@ -50,7 +50,7 @@ const storageKey = `banner-dismissed:${btnId}`;
         </div>
         <button
           type="button"
-          class="ml-auto inline-flex items-center gap-x-2 rounded-full border border-transparent p-2 text-sm font-semibold text-decernia-muted transition duration-300 hover:bg-decernia-border hover:text-decernia-text focus:outline-hidden"
+          class="text-decernia-muted hover:bg-decernia-border hover:text-decernia-text ml-auto inline-flex items-center gap-x-2 rounded-full border border-transparent p-2 text-sm font-semibold transition duration-300 focus:outline-hidden"
           id={btnId}
         >
           <span class="sr-only">Dismiss</span>
