@@ -1,14 +1,14 @@
 import ogImageSrc from '@images/social.png';
 
 export const SITE = {
-  title: 'ScrewFast',
-  tagline: 'Top-quality Hardware Tools',
+  title: 'Decernia',
+  tagline: 'Strategisch advies & Architectuur',
   description:
-    'ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability.',
+    'Decernia biedt hoogwaardig architectuuradvies en deskundige regie voor het succesvol realiseren van uw veranderopgaven. Verken ons instrumentarium en neem contact op voor een strategisch gesprek over uw digitale transformatie.',
   description_short:
-    'ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.',
-  url: 'https://screwfast.uk',
-  author: 'Emil Gulamov',
+    'Decernia biedt hoogwaardig architectuuradvies en deskundige regie voor het succesvol realiseren van uw veranderopgaven.',
+  url: 'https://decernia.nl',
+  author: 'Pieter van Gemeren',
 };
 
 export const SEO = {
@@ -35,9 +35,9 @@ export const OG = {
   locale: 'en_US',
   type: 'website',
   url: SITE.url,
-  title: `${SITE.title}: Hardware Tools & Construction Services`,
+  title: `${SITE.title}: Strategisch Advies & Architectuur`,
   description:
-    "Equip your projects with ScrewFast's top-quality hardware tools and expert construction services. Trusted by industry leaders, ScrewFast offers simplicity, affordability, and reliability. Experience the difference with user-centric design and cutting-edge tools. Start exploring now!",
+    "Versterk uw veranderopgaven met de beproefde architectuurkaders en deskundige regie van Decernia. Vertrouwd door beslissers in hooggereguleerde en data-intensieve domeinen. Ervaar het verschil van een praktijkgericht instrumentarium en geavanceerde adviesmethodieken. Verken direct de mogelijkheden!",
   image: ogImageSrc,
 };
 

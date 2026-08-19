@@ -1,38 +1,38 @@
 {
-  "title": "Simple, Transparent Pricing",
-  "subTitle": "Boost efficiency with ScrewFast's clear, value-driven plans.",
-  "badge": "Best value",
-  "thirdOption": "Enterprise Solutions?",
-  "btnText": "Get a Custom Quote",
+  "title": "Transparante Adviesvormen",
+  "subTitle": "Verhoog uw realisatiekracht met heldere, waardegedreven diensten van Decernia.",
+  "badge": "Meest gekozen",
+  "thirdOption": "Maatwerk of Complex Portfolio?",
+  "btnText": "Vraag een Voorstel op Maat aan",
 
   "starterKit": {
-    "name": "Starter Kit",
-    "description": "Best option for DIY projects",
-    "price": "49",
-    "cents": ".00",
-    "billingFrequency": "USD / monthly",
+    "name": "Architectuur Fundament",
+    "description": "Ideaal voor de uitvoering van een specifieke veranderopgave",
+    "price": "490",
+    "cents": ",00",
+    "billingFrequency": "EUR / maandelijks",
     "features": [
-      "Key hardware tools",
-      "Access to guides & tutorials",
-      "Standard support"
+      "Basisset architectuurkaders & sjablonen",
+      "Toegang tot beproefde richtlijnen",
+      "Reguliere adviesondersteuning"
     ],
-    "purchaseBtnTitle": "Get the Starter Kit",
+    "purchaseBtnTitle": "Start met Fundament",
     "purchaseLink": "#"
   },
 
   "professionalToolbox": {
-    "name": "Professional Toolbox",
-    "description": "Best for large scale uses",
-    "price": "89",
-    "cents": ".00",
-    "billingFrequency": "USD / monthly",
+    "name": "Strategie & Regie",
+    "description": "Beste keus voor continue ondersteuning en complexe transformaties",
+    "price": "890",
+    "cents": ",00",
+    "billingFrequency": "EUR / maandelijks",
     "features": [
-      "Premium tool selection",
-      "Priority support",
-      "Exclusive content & deals",
-      "Bulk order discounts"
+      "Volledig geavanceerd instrumentarium",
+      "Prioritaire strategische begeleiding",
+      "Exclusieve best-practices & benchmarkdata",
+      "Schalingsvoordeel bij langdurige trajecten"
     ],
-    "purchaseBtnTitle": "Get the Professional Toolbox",
+    "purchaseBtnTitle": "Kies Strategie & Regie",
     "purchaseLink": "#"
   }
 }

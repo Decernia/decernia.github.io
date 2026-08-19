@@ -1,29 +1,29 @@
 {
-  "subTitle": "Ask us anything about our brand and products, and get factual responses.",
+  "subTitle": "Stel uw vragen over onze visie, aanpak en het adviesinstrumentarium van Decernia.",
   "faqs": [
     {
-      "question": "What types of tools are included in the Starter Kit?",
-      "answer": "The Starter Kit features essential hand and power tools for diverse DIY projects, including hammers, drills, screwdrivers, and a variety of fasteners. It's a curated selection to help beginners and experienced DIYers alike tackle most home improvement tasks."
+      "question": "Wat omvat het pakket 'Architectuur Fundament'?",
+      "answer": "Het 'Architectuur Fundament' biedt essentiële kaders, richtlijnen en sjablonen voor specifieke veranderopgaven. Het is samengesteld om uw organisatie direct te voorzien van de juiste bouwstenen voor een beheerste en gestructureerde uitvoering."
     },
     {
-      "question": "Can I upgrade from the Starter Kit to the Professional Toolbox?",
-      "answer": "Absolutely! You can upgrade to the Professional Toolbox at any time to access a wider range of high-quality tools, enjoy priority customer support, and receive exclusive content. Contact our support team for a seamless transition."
+      "question": "Is het mogelijk om op te schalen naar 'Strategie & Regie'?",
+      "answer": "Jazeker. U kunt op elk gewenst moment opschalen naar een doorlopend partnerschap. Hiermee krijgt u toegang tot ons volledige instrumentarium, prioritaire strategische begeleiding en periodieke toetsing op bestuurlijk niveau."
     },
     {
-      "question": "What discounts are available for bulk orders through the Professional Toolbox plan?",
-      "answer": "Professional Toolbox members are entitled to exclusive discounts on bulk orders, the percentage of which may vary depending on the order volume. Get in touch with us to discuss your needs, and we'll provide a tailored discount structure."
+      "question": "Hoe werkt de schaalbaarheid bij langdurige trajecten of een brede portfolio-inzet?",
+      "answer": "Bij omvangrijke trajecten of de begeleiding van meerdere veranderinitiatieven hanteren we aangepaste afspraken. Neem contact op om de omvang van uw portfolio te bespreken; wij bieden een voorstel op maat dat past bij uw organisatie."
     },
     {
-      "question": "What kind of customer support can I expect?",
-      "answer": "All our customers receive dedicated email support. With the Starter Kit, you'll receive our standard support, while the Professional Toolbox plan upgrades you to priority support, meaning faster response times and specialized assistance."
+      "question": "Welke ondersteuning en begeleiding mag ik van Decernia verwachten?",
+      "answer": "U werkt altijd samen met ervaren adviseurs. Binnen 'Architectuur Fundament' bieden we de benodigde kaders en ondersteuning op doordeweekse dagen. Met 'Strategie & Regie' bent u verzekerd van directe, prioritaire toegang tot onze senior adviseurs bij cruciale besluitvorming."
     },
     {
-      "question": "How current are the online resources and tutorials?",
-      "answer": "We regularly update our online resources and tutorials to reflect the latest trends in DIY and construction, as well as introductions to new tools and techniques. Our material aims to be comprehensive and user-friendly for all skill levels."
+      "question": "Hoe actueel zijn de architectuurkaders en richtlijnen van Decernia?",
+      "answer": "Ons instrumentarium wordt continu geactualiseerd op basis van de nieuwste wet- en regelgeving, standaarden (zoals NEN-normeringen) en technologische ontwikkelingen. Zo bent u altijd verzekerd van toekomstbestendige adviezen."
     },
     {
-      "question": "Does ScrewFast offer services for large-scale construction projects?",
-      "answer": "Yes, our Enterprise Solutions are designed for larger companies requiring comprehensive services. We provide consultation, planning, and supply of high-grade tools and materials, as well as staffing solutions for substantial construction needs. Contact us for a customized quote."
+      "question": "Biedt Decernia ook ondersteuning bij complexe, organisatiebrede transformaties?",
+      "answer": "Absoluut. Onze 'Enterprise Oplossingen' zijn specifiek ontworpen voor complexe veranderopgaven in hooggereguleerde domeinen. Wij bieden strategische consultatie, integrale architectuurregie en begeleiding op bestuurlijk niveau. Neem contact op voor een afstemmingsgesprek."
     }
   ]
 }
