@@ -37,7 +37,7 @@ export const OG = {
   url: SITE.url,
   title: `${SITE.title}: Strategisch Advies & Architectuur`,
   description:
-    "Versterk uw veranderopgaven met de beproefde architectuurkaders en deskundige regie van Decernia. Vertrouwd door beslissers in hooggereguleerde en data-intensieve domeinen. Ervaar het verschil van een praktijkgericht instrumentarium en geavanceerde adviesmethodieken. Verken direct de mogelijkheden!",
+    'Versterk uw veranderopgaven met de beproefde architectuurkaders en deskundige regie van Decernia. Vertrouwd door beslissers in hooggereguleerde en data-intensieve domeinen. Ervaar het verschil van een praktijkgericht instrumentarium en geavanceerde adviesmethodieken. Verken direct de mogelijkheden!',
   image: ogImageSrc,
 };
 
