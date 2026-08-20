@@ -30,17 +30,17 @@ const mostRecentPost: CollectionEntry<'blog'> | undefined = blogPosts[0];
 const otherPosts: CollectionEntry<'blog'>[] = blogPosts.slice(1);
 
 // Define variables for page content
-const title: string = 'Your Gateway to Construction Excellence';
+const title: string = 'Uw kompas voor Stelsel- en Netwerkinrichting';
 const subTitle: string =
-  'Explore the latest news, tips, and insights from ScrewFast to enhance your construction projects. From product spotlights to project management strategies, our blog is your go-to resource for all things hardware and construction.';
-const secondTitle: string = 'Insights';
+  'Ontdek de nieuwste inzichten, verdiepende artikelen en praktijkervaringen van Decernia. Van koersvaste ketenarchitectuur tot gedragen besluitvorming: wij delen onze kennis om complexe, organisatieoverstijgende veranderopgaven trefzeker te sturen.';
+const secondTitle: string = 'Inzichten';
 const secondSubTitle: string =
-  "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts. ";
+  'Blijf op de hoogte van de nieuwste trends, normen en bestuurlijke ontwikkelingen binnen complexe netwerken en stelsels met de visie en duiding van de experts van Decernia.';
 
 const pageTitle: string = `Blog | ${SITE.title}`;
 const metaDescription =
-  "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts.";
-const ogTitle = 'Construction Industry Blog | ScrewFast';
+  'Blijf voorop lopen in de nieuwste ontwikkelingen rondom ketensamenwerking en stelselarchitectuur met de visie en duiding van het team van Decernia.';
+const ogTitle = 'Strategische Inzichten & Stelselarchitectuur | Decernia';
 ---
 
 <MainLayout
@@ -50,17 +50,17 @@ const ogTitle = 'Construction Industry Blog | ScrewFast';
   structuredData={{
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    '@id': 'https://screwfast.uk/blog',
-    url: 'https://screwfast.uk/blog',
-    name: 'Blog | ScrewFast',
+    '@id': 'https://decernia.nl',
+    url: 'https://decernia.nl/blog',
+    name: 'Blog | Decernia',
     description:
-      "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts.",
+      'Blijf op de hoogte van de nieuwste trends en ontwikkelingen binnen complexe netwerken en stelsels met de inzichten van de experts van Decernia.',
     isPartOf: {
       '@type': 'WebSite',
-      url: 'https://screwfast.uk',
-      name: 'ScrewFast',
+      url: 'https://decernia.nl',
+      name: 'Decernia',
       description:
-        'ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.',
+        'Decernia biedt hoogwaardige architectuurproducten en deskundige bestuurlijke advisering voor al uw complexe verander- en inrichtingsvraagstukken.',
     },
     inLanguage: 'en-US',
   }}

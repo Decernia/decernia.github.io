@@ -1,21 +1,21 @@
 ---
-title: 'Simplify Procurement and Stay Within Budget with ScrewFast'
-description: 'Affordable, durable tools for efficient construction projects'
+title: 'Snel resultaat boeken en binnen Budget blijven met Decernia'
+description: 'Doelgerichte architectuurproducten voor voorspelbare veranderopgaven'
 author: 'Olga Zabegina'
 role: 'Strategic Marketing Manager'
 authorImage: '@/images/blog/anna.avif'
-authorImageAlt: 'Olga Zabegina avatar'
-pubDate: 2024-02-18
+authorImageAlt: 'Portret van Olga Zabegina'
+pubDate: 2026-02-18
 cardImage: '@/images/blog/post-3.avif'
-cardImageAlt: 'Side view worker wearing gloves'
+cardImageAlt: 'Effectieve ketenafstemming en pragmatische stelselarchitectuur'
 readTime: 3
-tags: ['procurement', 'affordable', 'efficiency']
+tags: ['pragmatisme', 'kostenbeheersing', 'efficiency']
 ---
 
-Managing a construction project can be overwhelming, especially when it comes to procurement. That's why ScrewFast is committed to simplifying the process and keeping your projects within budget.
+Het regisseren van organisatieoverstijgende veranderopgaven kan overweldigend zijn, zeker wanneer doorlooptijden en budgetten onder druk staan. Daarom richt Decernia zich op het vereenvoudigen van complexe vraagstukken met heldere, pragmatische oplossingen.
 
-With our line of affordable tools and equipment, you can find everything you need without breaking the bank. Our user-centric design ensures that our products are easy to use, saving you time and frustration on the job site.
+Met onze doelgerichte en gestandaardiseerde architectuurproducten—zoals behapbare Project Start Architecturen (PSA's) en scherpe besluitvormingsnotities—krijgt u snel grip op de materie zonder dat er sprake is van een langdurig en kostbaar adviestraject. Onze producten zijn ontworpen met het oog op directe toepasbaarheid op bestuurlijk en operationeel niveau.
 
-But affordability doesn't mean sacrificing quality. ScrewFast products are built to last, providing reliable performance and durability when you need it most. And with our comprehensive documentation and tutorials, you can integrate our products seamlessly into your workflow, maximizing efficiency and productivity.
+Pragmatisme betekent bij ons echter nooit dat er wordt ingeleverd op inhoudelijke kwaliteit. De kaders van Decernia zijn robuust en duurzaam, waardoor u vanaf de start doeltreffend kunt sturen en kostbare herstelwerkzaamheden achteraf voorkomt. Met onze overzichtelijke documentatie en overdraagbare ArchiMate-modellen integreert u de nieuwe kaders naadloos in uw bestaande governance.
 
-Whether you're a DIY enthusiast or a seasoned contractor, ScrewFast has the solutions you need to succeed. Experience the difference for yourself and see why ScrewFast is the trusted choice for hardware and construction needs.
+Of u nu aan het begin staat van een kleinschalige ketenintegratie of verantwoordelijk bent voor een omvangrijk stelselprogramma: Decernia biedt de kaders die uw initiatief nodig heeft. Ervaar het verschil en ontdek waarom informatiemanagers en bestuurders vertrouwen op onze aanpak.
