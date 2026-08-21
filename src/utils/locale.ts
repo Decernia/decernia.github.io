@@ -1,26 +1,24 @@
 /**
  * Marketing-site locale helpers.
- * Starlight drives Astro.currentLocale for docs, but file-based marketing
- * pages under `src/pages/fr/` should derive locale from the pathname so
- * nav/footer copy stays correct regardless of Starlight's generated i18n.
+ * Ingesteld voor Decernia: Nederlands ('nl') als basistaal, Engels ('en') als secundaire taal.
  */
 
-export type MarketingLocale = 'en' | 'fr';
+export type MarketingLocale = 'nl' | 'en';
 
 export function getMarketingLocale(
   pathname: string,
   currentLocale?: string | undefined
 ): MarketingLocale {
-  if (pathname === '/fr' || pathname.startsWith('/fr/')) return 'fr';
-  if (currentLocale === 'fr') return 'fr';
-  return 'en';
+  if (pathname === '/en' || pathname.startsWith('/en/')) return 'en';
+  if (currentLocale === 'en') return 'en';
+  return 'nl';
 }
 
 export function localePath(locale: MarketingLocale, path = ''): string {
   const clean = path.startsWith('/') ? path : `/${path}`;
-  if (locale === 'fr') {
-    if (clean === '/' || clean === '') return '/fr';
-    return `/fr${clean}`;
+  if (locale === 'en') {
+    if (clean === '/' || clean === '') return '/en';
+    return `/en${clean}`;
   }
   return clean === '' ? '/' : clean;
 }

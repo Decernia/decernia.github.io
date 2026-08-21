@@ -13,54 +13,58 @@ const locale = getMarketingLocale(Astro.url.pathname, Astro.currentLocale);
 const copy =
   locale === 'fr'
     ? {
-        title: 'Contactez-nous',
-        subTitle:
-          "Vous avez des questions ou souhaitez discuter d'un projet ? Contactez-nous et laissons-nous élaborer la solution parfaite avec nos outils et services.",
-        formTitle: 'Remplissez le formulaire ci-dessous',
-        formSubTitle:
-          'Nous vous répondrons dans un délai de 1 à 2 jours ouvrables.',
-        firstName: 'Prénom',
-        lastName: 'Nom',
-        details: 'Détails',
-        send: 'Envoyer un message',
-        demoMessage:
-          'Merci ! (Démo — branchez un endpoint pour recevoir de vrais messages.)',
-        knowledgeHeading: 'Base de connaissances',
-        knowledgeContent:
-          'Parcourez tous nos articles de base de connaissances.',
-        knowledgeLink: 'Visiter les guides et tutoriels',
-        faqHeading: 'FAQ',
-        faqContent:
-          'Explorez notre FAQ pour des réponses rapides et claires aux questions courantes.',
-        faqLink: 'Visiter la FAQ',
-        officeHeading: 'Visitez notre bureau',
-        officeContent: 'ScrewFast UK',
-        emailHeading: 'Contactez-nous par e-mail',
-        emailContent: 'Préférez-vous le texte écrit ? Envoyez-nous un e-mail à',
-      }
-    : {
         title: 'Contact us',
         subTitle:
-          "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.",
+          "Have questions or want to discuss a project? Reach out, and let's discuss your system and network architecture needs.",
         formTitle: 'Fill in the form below',
-        formSubTitle: "We'll get back to you in 1-2 business days.",
+        formSubTitle: "We'll get back to you within 1-2 business days.",
         firstName: 'First Name',
         lastName: 'Last Name',
-        details: 'Details',
+        details: 'Your message or question',
         send: 'Send Message',
         demoMessage:
           'Thanks! (Demo only — wire a form endpoint to receive real messages.)',
         knowledgeHeading: 'Knowledgebase',
-        knowledgeContent: 'Browse through all of our knowledgebase articles.',
-        knowledgeLink: 'Visit guides & tutorials',
+        knowledgeContent:
+          'Browse through our insights and publications on system architecture.',
+        knowledgeLink: 'Visit articles & guides',
         faqHeading: 'FAQ',
         faqContent:
-          'Explore our FAQ for quick, clear answers to common queries.',
+          'Explore our FAQ for quick, clear answers to common questions.',
         faqLink: 'Visit FAQ',
-        officeHeading: 'Visit our office',
-        officeContent: 'UK ScrewFast',
+        officeHeading: 'Office & Location',
+        officeContent: 'Decernia',
+        addressContent: 'The Netherlands',
         emailHeading: 'Contact us by email',
-        emailContent: 'Prefer the written word? Drop us an email at',
+        emailContent: 'Prefer direct email? Send us a message at',
+        emailAddress: 'info@decernia.nl',
+      }
+    : {
+        title: 'Neem contact op',
+        subTitle:
+          'Heeft u een advies- of interimvraagstuk, of wilt u sparren over uw stelsel- en netwerkinrichting? Laat een bericht achter en we nemen zo snel mogelijk contact met u op.',
+        formTitle: 'Vul het formulier in',
+        formSubTitle: 'We reageren binnen 1 tot 2 werkdagen.',
+        firstName: 'Voornaam',
+        lastName: 'Achternaam',
+        details: 'Uw bericht of vraagstuk',
+        send: 'Verstuur bericht',
+        demoMessage:
+          'Bedankt! (Demo — koppel een formulier-endpoint om berichten te ontvangen.)',
+        knowledgeHeading: 'Kennisbank & Artikelen',
+        knowledgeContent:
+          'Bekijk onze inzichten en publicaties over stelselarchitectuur.',
+        knowledgeLink: 'Lees artikelen',
+        faqHeading: 'Veelgestelde vragen',
+        faqContent:
+          'Bekijk onze FAQ voor snelle en duidelijke antwoorden op veelgestelde vragen.',
+        faqLink: 'Bekijk FAQ',
+        officeHeading: 'Kantoor & Locatie',
+        officeContent: 'Decernia',
+        addressContent: 'Nederland',
+        emailHeading: 'Direct contact via e-mail',
+        emailContent: 'Stuur ons rechtstreeks een bericht via e-mail op',
+        emailAddress: 'info@decernia.nl',
       };
 ---
 
@@ -150,7 +154,7 @@ const copy =
           heading={copy.officeHeading}
           content={copy.officeContent}
           isAddressVisible={true}
-          addressContent="72 Union Terrace, E10 4PE London"
+          addressContent={copy.addressContent}
           ><Icon name="mapPin" />
         </ContactIconBlock>
 
@@ -158,8 +162,8 @@ const copy =
           heading={copy.emailHeading}
           content={copy.emailContent}
           isLinkVisible={true}
-          linkTitle="support@screwfast.uk"
-          linkURL="mailto:support@screwfast.uk"
+          linkTitle={copy.emailAddress}
+          linkURL={`mailto:${copy.emailAddress}`}
           ><Icon name="envelopeOpen" />
         </ContactIconBlock>
       </div>
