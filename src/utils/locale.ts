@@ -1,9 +1,5 @@
-/**
- * Marketing-site locale helpers.
- * Ingesteld voor Decernia: Nederlands ('nl') als basistaal, Engels ('en') als secundaire taal.
- */
-
-export type MarketingLocale = 'nl' | 'en';
+// Voeg 'fr' tijdelijk toe aan de Union type:
+export type MarketingLocale = 'nl' | 'en' | 'fr';
 
 export function getMarketingLocale(
   pathname: string,
