@@ -6,12 +6,12 @@ import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const insightPosts = await getCollection('insights', ({ id }) =>
-    id.startsWith('fr/')
+    id.startsWith('en/')
   );
   return insightPosts.map(post => {
-    const idWithoutLang = post.id.replace(/^fr\//, '');
+    const idWithoutLang = post.id.replace(/^en\//, '');
     return {
-      params: { lang: 'fr', id: idWithoutLang },
+      params: { lang: 'en', id: idWithoutLang },
       props: { post },
     };
   });
@@ -22,12 +22,12 @@ const { post } = Astro.props;
 const pageTitle: string = `${post.data.title} | ${SITE.title}`;
 const metaDescription = post.data.description;
 const ogTitle = `${post.data.title} | Insights | ${SITE.title}`;
-const insightId = post.id.replace(/^fr\//, '');
+const insightId = post.id.replace(/^en\//, '');
 ---
 
 <MainLayout
   title={pageTitle}
-  lang="fr"
+  lang="en"
   customDescription={metaDescription}
   customOgTitle={ogTitle}
   structuredData={{
@@ -50,10 +50,10 @@ const insightId = post.id.replace(/^fr\//, '');
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `${SITE.url}/fr/insights/${insightId}`,
+      '@id': `${SITE.url}/en/insights/${insightId}`,
     },
-    inLanguage: 'fr',
+    inLanguage: 'en',
   }}
 >
-  <InsightDetail post={post} lang="fr" />
+  <InsightDetail post={post} lang="en" />
 </MainLayout>

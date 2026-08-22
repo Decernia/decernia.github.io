@@ -6,7 +6,7 @@ For AI assistants (Cursor, Copilot, Claude, ChatGPT): this file describes projec
 
 ScrewFast is an Astro + Tailwind CSS + Preline UI template for landing pages, blogs, documentation, and product/content pages. Stack: Astro 7, Tailwind v4 (via `@tailwindcss/vite`), Preline (modals, accordions), Starlight (docs), Lenis (smooth scroll), GSAP (animations).
 
-Marketing site locales: **en** and **fr** (file-based routes under `src/pages/` and `src/pages/fr/`). Use `getMarketingLocale()` from [`src/utils/locale.ts`](src/utils/locale.ts) for nav/footer/forms — do not rely only on `Astro.currentLocale` for marketing pages.
+Marketing site locales: **en** and **fr** (file-based routes under `src/pages/` and `src/pages/en/`). Use `getMarketingLocale()` from [`src/utils/locale.ts`](src/utils/locale.ts) for nav/footer/forms — do not rely only on `Astro.currentLocale` for marketing pages.
 
 Docs (Starlight) locales: en, de, es, fa, fr, ja, zh-cn. Guides and welcome are translated; `construction/`, `tools/`, and `advanced/` fall back to English for non-root locales.
 
@@ -38,7 +38,7 @@ Defined in [tsconfig.json](tsconfig.json).
 | Pages                   | [src/pages/](src/pages/)           | Astro file-based routing; `fr/` for French locale.                                                                                                                                                                        |
 | Content (collections)   | [src/content/](src/content/)       | `blog/`, `products/`, `insights/`; `docs/` for Starlight (i18n subdirs: guides, construction, tools, advanced, de, es, fa, fr, ja, zh-cn).                                                                                |
 | Static assets           | [public/](public/)                 | Served as-is.                                                                                                                                                                                                             |
-| Navigation & UI helpers | [src/utils/](src/utils/)           | [navigation.ts](src/utils/navigation.ts) exports default `{ navBarLinks, footerLinks, socialLinks }`; [fr/navigation.ts](src/utils/fr/navigation.ts) for French. Navbar/Footer use `Astro.currentLocale` to pick strings. |
+| Navigation & UI helpers | [src/utils/](src/utils/)           | [navigation.ts](src/utils/navigation.ts) exports default `{ navBarLinks, footerLinks, socialLinks }`; [fr/navigation.ts](src/utils/en/navigation.ts) for French. Navbar/Footer use `Astro.currentLocale` to pick strings. |
 | Site config & JSON data | [src/data_files/](src/data_files/) | [constants.ts](src/data_files/constants.ts): SITE, SEO, OG, partnersData; faqs.json, features.json, pricing.json, mega_link.ts; `fr/` for localized JSON.                                                                 |
 | Styles & scripts        | [src/assets/](src/assets/)         | `styles/` (global.css, lenis.css, starlight); `scripts/` e.g. [lenisSmoothScroll.js](src/assets/scripts/lenisSmoothScroll.js).                                                                                            |
 | Images (imported)       | [src/images/](src/images/)         | Use with `@images/`; processed by Astro.                                                                                                                                                                                  |
@@ -70,4 +70,4 @@ Defined in [tsconfig.json](tsconfig.json).
 - Add or edit content in [src/content/](src/content/) and respect [content.config.ts](src/content.config.ts) schemas.
 - Follow [MainLayout.astro](src/layouts/MainLayout.astro) for layout and Meta/SEO.
 - Use **Tailwind v4** only; do not use Tailwind v3 syntax.
-- Navigation/footer copy: edit [src/utils/navigation.ts](src/utils/navigation.ts) (and [src/utils/fr/navigation.ts](src/utils/fr/navigation.ts) for French); Navbar/Footer receive the default export as `strings`.
+- Navigation/footer copy: edit [src/utils/navigation.ts](src/utils/navigation.ts) (and [src/utils/en/navigation.ts](src/utils/en/navigation.ts) for French); Navbar/Footer receive the default export as `strings`.

@@ -1,11 +1,11 @@
 ---
-import { getMarketingLocale } from '@utils/locale';
+import { getMarketingLocale } from '@utils/locale.ts';
 
 const locale = getMarketingLocale(Astro.url.pathname, Astro.currentLocale);
 
 const {
-  label = locale === 'fr' ? 'E-mail' : 'Email',
-  title = locale === 'fr' ? "S'abonner" : 'Subscribe',
+  label = locale === 'en' ? 'Email' : 'E-mail',
+  title = locale === 'en' ? 'Subscribe' : 'Inschrijven',
   id = 'footer-input',
 } = Astro.props;
 
@@ -15,11 +15,12 @@ interface Props {
   id?: string;
 }
 
-const placeholder = locale === 'fr' ? 'Entrez votre email' : 'Enter your email';
+const placeholder =
+  locale === 'en' ? 'Enter your email' : 'Vul uw e-mailadres in';
 const successMessage =
-  locale === 'fr'
-    ? 'Merci ! (démo — branchez un service e-mail pour collecter de vrais abonnés.)'
-    : 'Thanks! (Demo only — wire an email service to collect real subscribers.)';
+  locale === 'en'
+    ? 'Thanks! (Demo only — wire an email service to collect real subscribers.)'
+    : 'Bedankt! (Demo — koppel een e-maildienst om inschrijvingen te verzamelen.)';
 ---
 
 <div

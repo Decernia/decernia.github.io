@@ -8,22 +8,22 @@ import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import { SITE } from '@data/constants';
 
-// Get all blogs post in English and sort them based on publish date
-
-const englishBlogEntries = await getCollection('blog', ({ id }) => {
-  return id.startsWith('en/');
+// Get all blog posts in Dutch (excluding posts in the en/ subfolder) and sort them based on publish date
+const dutchBlogEntries = await getCollection('blog', ({ id }) => {
+  return !id.startsWith('en/');
 });
 
-const englishInsightsEntries = await getCollection('insights', ({ id }) => {
-  return id.startsWith('en/');
+const dutchInsightsEntries = await getCollection('insights', ({ id }) => {
+  return !id.startsWith('en/');
 });
 
-const blogPosts: CollectionEntry<'blog'>[] = englishBlogEntries.sort(
+const blogPosts: CollectionEntry<'blog'>[] = dutchBlogEntries.sort(
   (a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) =>
     b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
-// Get all insights posts
-const insightPosts: CollectionEntry<'insights'>[] = englishInsightsEntries;
+
+// Get all Dutch insights posts
+const insightPosts: CollectionEntry<'insights'>[] = dutchInsightsEntries;
 
 // Separate the most recent post from others
 const mostRecentPost: CollectionEntry<'blog'> | undefined = blogPosts[0];
@@ -62,7 +62,7 @@ const ogTitle = 'Strategische Inzichten & Stelselarchitectuur | Decernia';
       description:
         'Decernia biedt hoogwaardige architectuurproducten en deskundige bestuurlijke advisering voor al uw complexe verander- en inrichtingsvraagstukken.',
     },
-    inLanguage: 'en-US',
+    inLanguage: 'nl-NL',
   }}
 >
   <section
@@ -84,13 +84,23 @@ const ogTitle = 'Strategische Inzichten & Stelselarchitectuur | Decernia';
     </div>
   </section>
 
+  {/* Most recent blog post (Nu netjes bovenaan onder de header) */}
+  {
+    mostRecentPost && (
+      <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
+        <CardBlogRecent blogEntry={mostRecentPost} />
+      </section>
+    )
+  }
+
+  {/* Overige artikelen grid */}
   <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
     {
       blogPosts.length === 0 ? (
         <p class="text-center text-neutral-600 dark:text-neutral-400">
-          No blog posts yet. Check back soon.
+          Nog geen artikelen beschikbaar. Kom binnenkort terug.
         </p>
       ) : (
         <div class="grid gap-6 lg:grid-cols-2">
@@ -101,14 +111,7 @@ const ogTitle = 'Strategische Inzichten & Stelselarchitectuur | Decernia';
       )
     }
   </section>
-  {/* Most recent blog post */}
-  {
-    mostRecentPost && (
-      <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
-        <CardBlogRecent blogEntry={mostRecentPost} />
-      </section>
-    )
-  }
+
   {/* Insights section */}
   <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
@@ -126,7 +129,7 @@ const ogTitle = 'Strategische Inzichten & Stelselarchitectuur | Decernia';
     {
       insightPosts.length === 0 ? (
         <p class="text-center text-neutral-600 dark:text-neutral-400">
-          No insights yet. Check back soon.
+          Nog geen inzichten beschikbaar. Kom binnenkort terug.
         </p>
       ) : (
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

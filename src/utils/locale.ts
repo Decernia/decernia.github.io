@@ -1,5 +1,4 @@
-// Voeg 'fr' tijdelijk toe aan de Union type:
-export type MarketingLocale = 'nl' | 'en' | 'fr';
+export type MarketingLocale = 'nl' | 'en';
 
 export function getMarketingLocale(
   pathname: string,

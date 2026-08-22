@@ -1,32 +1,34 @@
-// An array of links for navigation bar
+// Links voor de Nederlandse navigatiebalk (root /)
 const navBarLinks = [
   { name: 'Home', url: '/' },
-  { name: 'Products', url: '/products' },
-  { name: 'Services', url: '/services' },
+  { name: 'Diensten', url: '/services' },
+  { name: 'Producten', url: '/products' },
   { name: 'Blog', url: '/blog' },
   { name: 'Contact', url: '/contact' },
 ];
-// An array of links for footer
+
+// Links voor de Nederlandse footer
 const footerLinks = [
   {
-    section: 'Ecosystem',
+    section: 'Ecosysteem',
     links: [
-      { name: 'Documentation', url: '/welcome-to-docs/' },
-      { name: 'Tools & Equipment', url: '/products' },
-      { name: 'Construction Services', url: '/services' },
+      { name: 'Documentatie', url: '/welcome-to-docs/' },
+      { name: 'Tools & Apparatuur', url: '/products' },
+      { name: 'Diensten', url: '/services' },
     ],
   },
   {
-    section: 'Company',
+    section: 'Organisatie',
     links: [
-      { name: 'About us', url: '#' },
+      { name: 'Over ons', url: '#' },
       { name: 'Blog', url: '/blog' },
-      { name: 'Careers', url: '#' },
-      { name: 'Customers', url: '#' },
+      { name: 'Carrière', url: '#' },
+      { name: 'Klanten', url: '#' },
     ],
   },
 ];
-// An object of links for social icons
+
+// Social media links
 const socialLinks = {
   facebook: 'https://www.facebook.com/',
   x: 'https://twitter.com/',

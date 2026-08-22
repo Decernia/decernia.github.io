@@ -1,0 +1,143 @@
+---
+// Importing necessary components
+import MainLayout from '@/layouts/MainLayout.astro';
+import PrimaryCTA from '@components/ui/buttons/PrimaryCTA.astro';
+import CardSmall from '@components/ui/cards/CardSmall.astro';
+import CardWide from '@components/ui/cards/CardWide.astro';
+import FeaturesStatsAlt from '@components/sections/features/FeaturesStatsAlt.astro';
+import TestimonialsSectionAlt from '@components/sections/testimonials/TestimonialsSectionAlt.astro';
+
+// Importing necessary functions from Astro
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+// Importing constants
+import { SITE } from '@data/constants';
+
+// Fetching all the product related content in English and sorting it by main.id
+const product: CollectionEntry<'products'>[] = (
+  await getCollection('products', ({ id }) => {
+    return id.startsWith('en/');
+  })
+).sort(
+  (a: CollectionEntry<'products'>, b: CollectionEntry<'products'>) =>
+    a.data.main.id - b.data.main.id
+);
+
+// Define variables for page content
+const title: string = 'Products & Solutions';
+const subTitle: string =
+  'Explore the clarity and strategic power of Decernia architecture tools and frameworks. Engineered for business architects and decision-makers navigating complex enterprise ecosystems.';
+
+// Testimonial data that will be rendered in the component
+const testimonials = [
+  {
+    content:
+      "Adopting Decernia's architecture frameworks transformed our enterprise steering overnight. The clarity in modeling business capabilities and alignment across IT systems is unmatched. Truly essential for complex organizational change.",
+    author: 'Jason Clark',
+    role: 'Lead Enterprise Architect | TechScale',
+    avatarSrc:
+      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80',
+    avatarAlt: 'Portrait of Jason Clark',
+  },
+  {
+    content:
+      'As a digital transformation lead, I rely on clean, deterministic modeling tools. Decernia provided the exact framework needed to map our target state with total precision. Highly recommended for any large-scale transformation.',
+    author: 'Maria Gonzalez',
+    role: 'Head of Digital Strategy | Innovate Corp',
+    avatarSrc:
+      'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80',
+    avatarAlt: 'Portrait of Maria Gonzalez',
+  },
+  {
+    content:
+      "Having worked in business architecture for over 15 years, Decernia's approach to governance and capability mapping stands out as best-in-class. It streamlines decision-making across all stakeholder levels.",
+    author: 'Richard Kim',
+    role: 'Principal Business Architect | Enterprise Solutions',
+    avatarSrc:
+      'https://images.unsplash.com/photo-1474176857210-7287d38d27c6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80',
+    avatarAlt: 'Portrait of Richard Kim',
+  },
+];
+
+const pageTitle = `Products & Solutions | ${SITE.title}`;
+const metaDescription =
+  'Explore Decernia architectural tools and framework solutions designed for enterprise decision-makers and business architects.';
+const ogTitle = 'Products & Architectural Solutions | Decernia';
+---
+
+<MainLayout
+  title={pageTitle}
+  lang="en"
+  customDescription={metaDescription}
+  customOgTitle={ogTitle}
+  structuredData={{
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://decernia.nl/en/products',
+    url: 'https://decernia.nl/en/products',
+    name: 'Products & Solutions | Decernia',
+    description:
+      'Explore Decernia architectural tools and framework solutions designed for enterprise decision-makers and business architects.',
+    isPartOf: {
+      '@type': 'WebSite',
+      url: 'https://decernia.nl/en',
+      name: 'Decernia',
+      description:
+        'Decernia offers strategic business architecture and IT consultancy solutions to guide complex enterprise transformations.',
+    },
+    inLanguage: 'en',
+  }}
+>
+  <div
+    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  >
+    <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
+      <div class="flex items-center gap-12">
+        <h1
+          class="text-2xl font-bold tracking-tight text-balance text-neutral-800 md:text-4xl md:leading-tight dark:text-neutral-200"
+        >
+          {title}
+        </h1>
+        {
+          subTitle && (
+            <p class="hidden max-w-(--breakpoint-sm) text-pretty text-neutral-600 md:block dark:text-neutral-400">
+              {subTitle}
+            </p>
+          )
+        }
+      </div>
+      <PrimaryCTA title="Client Stories" url="#testimonials" noArrow={true} />
+    </div>
+
+    <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+      {
+        product.map((product, index) => {
+          const position = index % 4;
+          if (position === 0 || position === 3) {
+            return <CardSmall product={product} productLocale="en" />;
+          } else {
+            return <CardWide product={product} productLocale="en" />;
+          }
+        })
+      }
+    </section>
+  </div>
+
+  {/* Features statistics section */}
+  <FeaturesStatsAlt
+    title="Why Choose Decernia?"
+    subTitle="Transform complex organizational strategy into actionable architecture. Whether mapping domain boundaries or establishing governance frameworks, Decernia gives you the control and clarity to build with confidence."
+    benefits={[
+      'Robust and deterministic frameworks for scalable architecture.',
+      'Innovative solutions tailored to modern IT & business alignment.',
+      'Dedicated consultancy support to ensure project success.',
+    ]}
+  />
+
+  {/* Testimonials section */}
+  <TestimonialsSectionAlt
+    title="What Our Clients Say"
+    testimonials={testimonials}
+  />
+</MainLayout>

@@ -1,12 +1,11 @@
 ---
 import Icon from '@components/ui/icons/Icon.astro';
-// Destructure the properties from Astro.props
-const {
-  pageTitle,
-  title = Astro.currentLocale === 'fr' ? 'Partager' : 'Share',
-} = Astro.props;
 
-// Define TypeScript interface for the properties
+// Bepaal de taal (standaard Nederlands 'nl')
+const isEn = Astro.currentLocale === 'en';
+
+const { pageTitle, title = isEn ? 'Share' : 'Delen' } = Astro.props;
+
 interface Props {
   pageTitle: string;
   title?: string;
@@ -37,6 +36,11 @@ const socialPlatforms: SocialPlatform[] = [
     svg: 'linkedIn',
   },
 ];
+
+// Teksten op basis van actieve taal
+const shareText = isEn ? 'Share on' : 'Delen via';
+const copyLinkText = isEn ? 'Copy link' : 'Kopieer link';
+const copiedText = isEn ? 'Copied!' : 'Gekopieerd!';
 ---
 
 <div
@@ -64,10 +68,10 @@ const socialPlatforms: SocialPlatform[] = [
             href={platform.url}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`Share on ${platform.name}`}
+            aria-label={`${shareText} ${platform.name}`}
           >
             <Icon name={platform.svg} />
-            Share on {platform.name}
+            {shareText} {platform.name}
           </a>
         ))
       }
@@ -76,7 +80,7 @@ const socialPlatforms: SocialPlatform[] = [
       <button
         type="button"
         class="js-clipboard hover:text-dark focus-visible:ring-secondary group inline-flex w-full items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-200 focus:bg-neutral-100 focus:outline-hidden focus-visible:ring-1 focus-visible:outline-hidden dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
-        data-clipboard-success-text="Copied"
+        data-clipboard-success-text={copiedText}
       >
         <svg
           class="js-clipboard-default h-4 w-4 transition group-hover:rotate-6"
@@ -108,19 +112,15 @@ const socialPlatforms: SocialPlatform[] = [
         >
           <polyline points="20 6 9 17 4 12"></polyline>
         </svg>
-        <span class="js-clipboard-success-text">Copy link</span>
+        <span class="js-clipboard-success-text">{copyLinkText}</span>
       </button>
     </div>
   </div>
 </div>
 
-{/* Import the necessary Clipboard plugin */}
-{/* https://clipboardjs.com/ */}
-
 <script>
   import ClipboardJS from 'clipboard';
 
-  // Initialization of Clipboard
   (function () {
     window.addEventListener('load', () => {
       const clipboards =
