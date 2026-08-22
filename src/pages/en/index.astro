@@ -1,0 +1,147 @@
+---
+// Import the necessary components
+import MainLayout from '@/layouts/MainLayout.astro';
+import HeroSection from '@components/sections/landing/HeroSection.astro';
+import HeroSectionAlt from '@components/sections/landing/HeroSectionAlt.astro';
+import ClientsSection from '@components/sections/landing/ClientsSection.astro';
+import FeaturesGeneral from '@components/sections/features/FeaturesGeneral.astro';
+import FeaturesNavs from '@components/sections/features/FeaturesNavs.astro';
+import TestimonialsSection from '@components/sections/testimonials/TestimonialsSection.astro';
+import PricingSection from '@components/sections/pricing/PricingSection.astro';
+import FAQ from '@components/sections/misc/FAQ.astro';
+import AnnouncementBanner from '@components/ui/banners/AnnouncementBanner.astro';
+import heroImage from '@images/hero-image.avif';
+import faqs from '@data/en/faqs.json';
+import features from '@data/en/features.json';
+import pricing from '@data/en/pricing.json';
+import featureImage from '@images/features-image.avif';
+import construction from '@images/Architectuurtools1.avif';
+import tools from '@images/whiteboard1.avif';
+import dashboard from '@images/dashboard-image.avif';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { partnersData } from '@/data_files/constants';
+
+const avatarSrcs: Array<string> = [
+  'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80',
+  'https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80',
+  'https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80',
+  'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80',
+];
+---
+
+<MainLayout lang="en">
+  <AnnouncementBanner
+    btnId="dismiss-button"
+    btnTitle="Discover our Blog, something new every month!"
+    url={getRelativeLocaleUrl('en', 'blog')}
+  />
+
+  <HeroSection
+    title={`From Strategy to Realization in <span class="text-yellow-500 dark:text-yellow-400">ICT Architecture</span>`}
+    subTitle="Decernia offers high-level advisory and interim management for complex IT challenges, ranging from enterprise architecture to software design."
+    primaryBtn="Explore the possibilities"
+    primaryBtnURL={getRelativeLocaleUrl('en', 'products')}
+    secondaryBtn="Contact us"
+    secondaryBtnURL={getRelativeLocaleUrl('en', 'contact')}
+    withReview={false}
+    avatars={avatarSrcs}
+    rating={`<span class="font-bold">4.8</span> / 5`}
+    starCount={4}
+    reviews={`From over <span class="font-bold">12.8k</span> reviews`}
+    src={heroImage}
+    alt="Whiteboard with notes, glasses, and laptop"
+  />
+
+  <ClientsSection
+    title="Trusted by National Organizations"
+    subTitle="Experience the reliability of seasoned enterprise architects"
+    partners={partnersData}
+  />
+
+  <FeaturesGeneral
+    title="Addressing Complex Market Demands"
+    subTitle="Organizations in highly regulated and data-intensive domains face the challenge of seamlessly aligning strategy, legislation, and IT architecture. Decernia provides the strategic frameworks, proven methodologies, and domain expertise needed to make complex transformations manageable and secure sustainable results."
+    src={featureImage}
+    alt="Strategic architecture and digitalization at Decernia"
+    features={features}
+  />
+
+  <FeaturesNavs
+    title={`Tailored <span class="text-yellow-500 dark:text-yellow-400">Architecture</span> for your digital foundation.`}
+    tabs={[
+      {
+        heading: 'Advanced Advisory & Setup Tools',
+        content:
+          'Decernia aligns its methodologies and advice precisely with your organization’s setup. Together, we build an agile and manageable digital landscape.',
+        svg: 'tools',
+        src: tools,
+        alt: 'Advisory tools and whiteboard overview',
+        first: true,
+      },
+      {
+        heading: 'Insight & Control',
+        content:
+          'Master complex architecture challenges with Decernia’s intuitive steering instruments. Our clear visualisations combine ease-of-use with deep insights, giving you direct control over progress, dependencies, and risks to drive fast, well-founded decision-making.',
+        svg: 'dashboard',
+        src: dashboard,
+        alt: 'Representation of intuitive dashboard',
+        second: true,
+      },
+      {
+        heading: 'Proven Functionality & Frameworks',
+        content:
+          'Decernia’s robust architecture frameworks and functionalities are designed to streamline your digital transformation. We reduce landscape complexity, enhance team delivery capabilities, and secure outcomes that meet the highest quality and compliance standards.',
+        svg: 'house',
+        src: construction,
+        alt: 'Architectural framework illustration',
+      },
+    ]}
+  />
+
+  <TestimonialsSection
+    title="Accelerate Your Transformation Initiatives"
+    subTitle="Decernia guarantees a flying start for your projects with immediately applicable architecture frameworks. Experience the agility of streamlined decision-making."
+    testimonials={[
+      {
+        content:
+          'Decernia brought immediate calm and sharpness to our transformation. Their decisive advice and rigorous frameworks significantly accelerated our decision-making. Without a doubt of decisive value for our complex transformation challenges!',
+        author: 'Samantha Ruiz',
+        role: 'CEO | ConstructIt Inc.',
+        avatarSrc:
+          'https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80',
+      },
+    ]}
+    statistics={[
+      {
+        count: '100+',
+        description:
+          'strategic transformation initiatives and architecture frameworks successfully guided',
+      },
+      {
+        count: '35%',
+        description:
+          'shorter lead times for IT transformations through sharp decision-making',
+      },
+      {
+        count: '15%',
+        description:
+          'structural reduction in maintenance costs and technical debt',
+      },
+      {
+        count: '2x',
+        description:
+          'faster realization thanks to agile and robust architecture frameworks',
+      },
+    ]}
+  />
+
+  <PricingSection pricing={pricing} />
+
+  <FAQ title="Frequently<br />Asked Questions" faqs={faqs} />
+
+  <HeroSectionAlt
+    title="Let's Build Together"
+    subTitle="Thoughtful architecture meets decisive execution. Discover how Decernia's tooling and expertise accelerate your transformation initiative."
+    url="https://github.com/Decernia"
+  />
+</MainLayout>

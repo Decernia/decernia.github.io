@@ -12,15 +12,15 @@ import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import { SITE } from '@data/constants';
 
-// Update getStaticPaths for French posts
+// Update getStaticPaths for English posts
 export async function getStaticPaths() {
   const blogPosts = await getCollection('blog', ({ id }) =>
-    id.startsWith('fr/')
+    id.startsWith('en/')
   );
   return blogPosts.map(post => {
-    const idWithoutLang = post.id.replace(/^fr\//, ''); // Remove the "fr/" prefix
+    const idWithoutLang = post.id.replace(/^en\//, ''); // Remove the "en/" prefix
     return {
-      params: { lang: 'fr', id: idWithoutLang },
+      params: { lang: 'en', id: idWithoutLang },
       props: { post },
     };
   });
@@ -32,7 +32,7 @@ const { Content } = await render(post);
 // Fetch related posts
 const blogPosts: CollectionEntry<'blog'>[] = await getCollection(
   'blog',
-  ({ id }) => id.startsWith('fr/')
+  ({ id }) => id.startsWith('en/')
 );
 const relatedPosts: CollectionEntry<'blog'>[] = blogPosts.filter(
   blogEntry => blogEntry.id !== post.id
@@ -41,11 +41,12 @@ const relatedPosts: CollectionEntry<'blog'>[] = blogPosts.filter(
 const pageTitle: string = `${post.data.title} | ${SITE.title}`;
 const metaDescription = post.data.description;
 const ogTitle = `${post.data.title} | Blog | ${SITE.title}`;
+const insightId = post.id.replace(/^en\//, '');
 ---
 
 <MainLayout
   title={pageTitle}
-  lang="fr"
+  lang="en"
   customDescription={metaDescription}
   customOgTitle={ogTitle}
   structuredData={{
@@ -63,14 +64,14 @@ const ogTitle = `${post.data.title} | Blog | ${SITE.title}`;
       name: SITE.title,
       logo: {
         '@type': 'ImageObject',
-        url: 'https://screwfast.uk/favicon.ico',
+        url: `${SITE.url}/favicon.ico`,
       },
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://screwfast.uk/fr/blog/${post.id.replace(/^fr\//, '')}`,
+      '@id': `${SITE.url}/en/blog/${insightId}`,
     },
-    inLanguage: 'fr',
+    inLanguage: 'en',
   }}
 >
   <section class="mx-auto max-w-3xl px-4 pt-6 pb-12 sm:px-6 lg:px-8 lg:pt-10">
@@ -156,9 +157,9 @@ const ogTitle = `${post.data.title} | Blog | ${SITE.title}`;
       </div>
     </div>
     <PostFeedback
-      title="Cet article était-il utile?"
-      firstChoice="Oui"
-      secondChoice="Non"
+      title="Was this article helpful?"
+      firstChoice="Yes"
+      secondChoice="No"
     />
   </section>
 
@@ -168,14 +169,14 @@ const ogTitle = `${post.data.title} | Blog | ${SITE.title}`;
       <h2
         class="text-2xl font-bold text-balance text-neutral-800 md:text-4xl md:leading-tight dark:text-neutral-200"
       >
-        Articles connexes
+        Related articles
       </h2>
     </div>
 
     <div class="grid grid-cols-2 gap-6">
       {
         relatedPosts.map(entry => (
-          <CardRelated blogEntry={entry} recentBlogLocale="fr" />
+          <CardRelated blogEntry={entry} recentBlogLocale="en" />
         ))
       }
     </div>

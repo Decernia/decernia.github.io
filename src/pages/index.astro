@@ -18,6 +18,7 @@ import featureImage from '@images/features-image.avif';
 import construction from '@images/Architectuurtools1.avif';
 import tools from '@images/whiteboard1.avif';
 import dashboard from '@images/dashboard-image.avif';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import { partnersData } from '@/data_files/constants';
 
 const avatarSrcs: Array<string> = [
@@ -28,28 +29,27 @@ const avatarSrcs: Array<string> = [
 ];
 ---
 
-<MainLayout>
+<MainLayout lang="nl">
   <AnnouncementBanner
     btnId="dismiss-button"
     btnTitle="Ontdek ons Blog, maandelijks iets nieuws!"
-    url="https://decernia.nl/blog/"
+    url={getRelativeLocaleUrl('nl', 'blog')}
   />
 
   <HeroSection
-    title=`Van Strategie naar Realisatie in <span
-        class="text-decernia-amber dark:text-decernia-amber">ICT-Architectuur</span>`
+    title=`Van Strategie naar Realisatie in <span class="text-yellow-500 dark:text-yellow-400">ICT-Architectuur</span>`
     subTitle="Decernia biedt hoogwaardig advies en interim-management voor complexe IT-vraagstukken, van bedrijfsarchitectuur tot software-ontwerp."
     primaryBtn="Ontdek de mogelijkheden"
-    primaryBtnURL="/products"
+    primaryBtnURL={getRelativeLocaleUrl('nl', 'products')}
     secondaryBtn="Neem contact op"
-    secondaryBtnURL="/contact"
+    secondaryBtnURL={getRelativeLocaleUrl('nl', 'contact')}
     withReview={false}
     avatars={avatarSrcs}
     rating=`<span class="font-bold">4.8</span> / 5`
     starCount={4}
-    reviews=`From Over <span class="font-bold">12.8k</span> Reviews`
+    reviews=`Van meer dan <span class="font-bold">12.8k</span> beoordelingen`
     src={heroImage}
-    alt="Whiteboard with notes, glasses and laptop. Photo by Compagnons"
+    alt="Whiteboard met notities, bril en laptop. Foto door Compagnons"
   />
 
   <ClientsSection
@@ -62,12 +62,12 @@ const avatarSrcs: Array<string> = [
     title="Inspringen op complexe marktbehoeften"
     subTitle="Organisaties in hooggereguleerde en data-intensieve domeinen staan voor de uitdaging om strategie, wetgeving en ICT-architectuur naadloos op elkaar aan te sluiten. Decernia biedt de strategische kaders, beproefde methodieken en domeinexpertise die nodig zijn om complexe veranderopgaven beheersbaar te maken en duurzame resultaten te borgen."
     src={featureImage}
-    alt="ScrewFast products in floating boxes"
+    alt="Strategische architectuur en digitalisering bij Decernia"
     features={features}
   />
 
   <FeaturesNavs
-    title=`Architectuur <span class="text-decernia-amber dark:text-decernia-amber">op maat</span> voor uw digitale fundering.`
+    title=`Architectuur <span class="text-yellow-500 dark:text-yellow-400">op maat</span> voor uw digitale fundering.`
     tabs={[
       {
         heading: 'Geavanceerde Advies- en Inrichtingstools',

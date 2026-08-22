@@ -1,6 +1,8 @@
 ---
+const isEn = Astro.currentLocale === 'en';
+
 const {
-  label = Astro.currentLocale === 'fr' ? 'Adresse e-mail' : 'Email address',
+  label = isEn ? 'Email address' : 'E-mailadres',
   id,
   errorId,
 } = Astro.props;
@@ -10,19 +12,19 @@ interface Props {
   id: string;
   errorId: string;
 }
+
+const errorMessage = isEn
+  ? 'Please include a valid email address so we can get back to you'
+  : 'Vul een geldig e-mailadres in zodat we contact met je kunnen opnemen';
 ---
 
-{/* Container for the label, input, and validation message */}
 <div>
-  {/* Label for the email input field */}
   <label
     for={id}
     class="mb-2 block text-sm text-neutral-800 dark:text-neutral-200"
     >{label}</label
   >
-  {/* Label for the email input field */}
   <div class="relative">
-    {/* Email input field */}
     <input
       type="email"
       id={id}
@@ -32,7 +34,6 @@ interface Props {
       required
       aria-describedby={errorId}
     />
-    {/* Hidden error icon */}
     <div class="pointer-events-none absolute inset-y-0 end-0 hidden pe-3">
       <svg
         class="h-5 w-5 text-red-500"
@@ -48,8 +49,7 @@ interface Props {
       </svg>
     </div>
   </div>
-  {/* Validation message which is hidden by default */}
   <p class="mt-2 hidden text-xs text-red-600" id={errorId}>
-    Please include a valid email address so we can get back to you
+    {errorMessage}
   </p>
 </div>

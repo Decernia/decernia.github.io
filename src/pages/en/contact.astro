@@ -1,0 +1,35 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import ContactSection from '@components/sections/misc/ContactSection.astro';
+import { SITE } from '@data/constants';
+
+const pageTitle: string = `Contact Us | ${SITE.title}`;
+const metaDescription =
+  "Do you have questions or want to discuss a project? Get in touch with us and let's create the perfect solution together.";
+const ogTitle = `Contact Us | Decernia`;
+---
+
+<MainLayout
+  title={pageTitle}
+  lang="en"
+  customDescription={metaDescription}
+  customOgTitle={ogTitle}
+  structuredData={{
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://decernia.nl/en/contact',
+    url: 'https://decernia.nl/en/contact',
+    name: `Contact Us | Decernia`,
+    description: metaDescription,
+    isPartOf: {
+      '@type': 'WebSite',
+      url: 'https://decernia.nl/',
+      name: 'Decernia',
+      description:
+        'Decernia offers expert advice and strategic solutions to elevate your organization and projects.',
+    },
+    inLanguage: 'en',
+  }}
+>
+  <ContactSection />
+</MainLayout>

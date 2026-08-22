@@ -1,28 +1,32 @@
 ---
-// Import the necessary dependencies
+// FooterSection.astro - Officiële Decernia Footer
 import FooterSocialLink from '@components/ui/links/FooterSocialLink.astro';
 import EmailFooterInput from '@components/ui/forms/input/EmailFooterInput.astro';
-import enStrings from '@utils/navigation.ts';
-import frStrings from '@utils/fr/navigation.ts';
+// Importeer beide versies van je navigatie
+import nlStrings from '@utils/navigation.ts';
+import enStrings from '@utils/en/navigation.ts';
 import Icon from '@components/ui/icons/Icon.astro';
 import BrandLogo from '@components/BrandLogo.astro';
 import { SITE } from '@data/constants';
 import { getMarketingLocale } from '@utils/locale';
 
 const locale = getMarketingLocale(Astro.url.pathname, Astro.currentLocale);
-const strings = locale === 'fr' ? frStrings : enStrings;
+
+// Schakel automatisch tussen Nederlands en Engels
+const strings = locale === 'en' ? enStrings : nlStrings;
 
 const sectionThreeTitle: string =
-  locale === 'fr' ? 'Rester à jour' : 'Stay up to date';
+  locale === 'nl' ? 'Blijf op de hoogte' : 'Stay up to date';
 const sectionThreeContent: string =
-  locale === 'fr'
-    ? 'Restez informé des derniers outils et des offres exclusives.'
+  locale === 'nl'
+    ? 'Blijf geïnformeerd over de nieuwste tools en exclusieve updates.'
     : 'Stay updated with the latest tools and exclusive deals.';
-const crafted: string = locale === 'fr' ? 'Fabriqué par' : 'Crafted by';
-const hiringBadge: string = locale === 'fr' ? 'On recrute !' : "We're hiring!";
+const crafted: string = locale === 'nl' ? 'Ontwikkeld door' : 'Crafted by';
+const hiringBadge: string =
+  locale === 'nl' ? 'We zoeken talent!' : "We're hiring!";
 const newsletterDemoMessage =
-  locale === 'fr'
-    ? 'Merci ! (démo — branchez un service e-mail pour collecter de vrais abonnés.)'
+  locale === 'nl'
+    ? 'Bedankt! (Demo — koppel een e-mailservice om echte abonnees te verzamelen.)'
     : 'Thanks! (Demo only — wire an email service to collect real subscribers.)';
 ---
 

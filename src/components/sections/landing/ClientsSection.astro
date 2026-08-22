@@ -39,11 +39,17 @@ interface Props {
   >
     {/* Clients Group SVGs */}
     {
-      partners.map(partner => (
-        <a href={partner.href} target="_blank" rel="noopener noreferrer">
-          <div set:html={partner.icon} />
-        </a>
-      ))
+      partners.map(partner =>
+        partner.href ? (
+          <a href={partner.href} target="_blank" rel="noopener noreferrer">
+            <div set:html={partner.icon} />
+          </a>
+        ) : (
+          <div>
+            <div set:html={partner.icon} />
+          </div>
+        )
+      )
     }
   </div>
 </section>

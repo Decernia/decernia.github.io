@@ -1,8 +1,7 @@
 ---
-const {
-  label = Astro.currentLocale === 'fr' ? 'Numéro de téléphone' : 'Phone Number',
-  id,
-} = Astro.props;
+const isEn = Astro.currentLocale === 'en';
+
+const { label = isEn ? 'Phone Number' : 'Telefoonnummer', id } = Astro.props;
 
 interface Props {
   label?: string;

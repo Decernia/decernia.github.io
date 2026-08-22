@@ -4,7 +4,7 @@ import { render, type CollectionEntry } from 'astro:content';
 
 interface Props {
   post: CollectionEntry<'insights'>;
-  lang?: 'en' | 'fr';
+  lang?: 'en' | 'nl';
 }
 
 const { post } = Astro.props;
@@ -156,7 +156,7 @@ const { Content } = await render(post);
     }
   };
 
-  document.addEventListener('DOMContentLoaded', event => {
+  document.addEventListener('DOMContentLoaded', () => {
     window.onscroll = onScroll;
 
     // Set initial width of progress bar
@@ -169,6 +169,7 @@ const { Content } = await render(post);
     }
   });
 </script>
+
 <script>
   import { gsap } from 'gsap';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -204,9 +205,7 @@ const { Content } = await render(post);
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    // The article element that contains the Markdown content
     const article: HTMLElement | null = document.querySelector('article');
-    // The ToC container <ul> element
     const tocList: HTMLElement | null = document.querySelector('#toc ul');
 
     const headings: NodeListOf<HTMLElement> | [] = article
