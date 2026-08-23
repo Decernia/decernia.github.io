@@ -1,38 +1,38 @@
 {
-  "title": "Tarification Simple et Transparente",
-  "subTitle": "Augmentez l'efficacité avec les plans clairs et axés sur la valeur de ScrewFast.",
-  "badge": "Meilleure valeur",
-  "thirdOption": "Solutions Entreprise?",
-  "btnText": "Obtenez un Devis Personnalisé",
+  "title": "Transparent Advisory Services",
+  "subTitle": "Enhance your execution power with clear, value-driven services from Decernia.",
+  "badge": "Most Popular",
+  "thirdOption": "Customized or Complex Portfolio?",
+  "btnText": "Request a Tailored Proposal",
 
   "starterKit": {
-    "name": "Kit de Démarrage",
-    "description": "Meilleure option pour les projets de bricolage",
-    "price": "$49",
-    "cents": ".00",
-    "billingFrequency": "USD / mensuel",
+    "name": "Architecture Foundation",
+    "description": "Ideal for executing a specific transformation assignment",
+    "price": "€490",
+    "cents": ",00",
+    "billingFrequency": "EUR / monthly",
     "features": [
-      "Outils matériels essentiels",
-      "Accès aux guides et tutoriels",
-      "Support standard"
+      "Essential architecture frameworks & templates",
+      "Access to proven guidelines",
+      "Regular advisory support"
     ],
-    "purchaseBtnTitle": "Obtenez le Kit de Démarrage",
+    "purchaseBtnTitle": "Start with Foundation",
     "purchaseLink": "#"
   },
 
   "professionalToolbox": {
-    "name": "Boîte à Outils Professionnelle",
-    "description": "Idéale pour les utilisations à grande échelle",
-    "price": "$89",
-    "cents": ".00",
-    "billingFrequency": "USD / mensuel",
+    "name": "Strategy & Governance",
+    "description": "Best choice for continuous support and complex transformations",
+    "price": "€890",
+    "cents": ",00",
+    "billingFrequency": "EUR / monthly",
     "features": [
-      "Sélection d'outils premium",
-      "Support prioritaire",
-      "Contenu et offres exclusifs",
-      "Remises sur les commandes en gros"
+      "Complete advanced toolkit",
+      "Priority strategic guidance",
+      "Exclusive best practices & benchmark data",
+      "Scalability benefits for long-term trajectories"
     ],
-    "purchaseBtnTitle": "Obtenez la Boîte à Outils Professionnelle",
+    "purchaseBtnTitle": "Choose Strategy & Governance",
     "purchaseLink": "#"
   }
 }

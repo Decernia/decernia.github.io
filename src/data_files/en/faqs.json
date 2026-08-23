@@ -1,29 +1,29 @@
 {
-  "subTitle": "Posez-nous toutes vos questions sur notre marque et nos produits, et obtenez des réponses factuelles.",
+  "subTitle": "Find answers to your questions about Decernia's vision, approach, and advisory toolkit.",
   "faqs": [
     {
-      "question": "Quels types d'outils sont inclus dans le Kit de Démarrage?",
-      "answer": "Le Kit de Démarrage comprend des outils à main et électriques essentiels pour différents projets de bricolage, notamment des marteaux, des perceuses, des tournevis et une variété de fixations. C'est une sélection soigneusement élaborée pour aider les débutants et les bricoleurs expérimentés à aborder la plupart des tâches d'amélioration de l'habitat."
+      "question": "What does the 'Architecture Foundation' package include?",
+      "answer": "The 'Architecture Foundation' provides essential frameworks, guidelines, and templates for specific transformation tasks. It is designed to immediately equip your organization with the right building blocks for a controlled and structured execution."
     },
     {
-      "question": "Puis-je passer du Kit de Démarrage à la Boîte à Outils Professionnelle?",
-      "answer": "Absolument ! Vous pouvez passer à la Boîte à Outils Professionnelle à tout moment pour accéder à une gamme plus large d'outils de haute qualité, bénéficier d'un support client prioritaire et recevoir un contenu exclusif. Contactez notre équipe de support pour une transition sans problème."
+      "question": "Is it possible to scale up to 'Strategy & Governance'?",
+      "answer": "Certainly. You can scale up to an ongoing partnership at any time. This gives you access to our complete toolkit, priority strategic guidance, and periodic reviews at the management level."
     },
     {
-      "question": "Quels sont les rabais disponibles pour les commandes en gros via le plan Boîte à Outils Professionnelle?",
-      "answer": "Les membres de la Boîte à Outils Professionnelle ont droit à des rabais exclusifs sur les commandes en gros, dont le pourcentage peut varier en fonction du volume de la commande. Contactez-nous pour discuter de vos besoins, et nous vous fournirons une structure de rabais personnalisée."
+      "question": "How does scalability work for long-term trajectories or a broad portfolio deployment?",
+      "answer": "For large-scale trajectories or the guidance of multiple change initiatives, we apply customized arrangements. Get in touch to discuss the scope of your portfolio; we offer a tailored proposal that fits your organization."
     },
     {
-      "question": "À quoi puis-je m'attendre en termes de support client?",
-      "answer": "Tous nos clients bénéficient d'un support par e-mail dédié. Avec le Kit de Démarrage, vous recevrez notre support standard, tandis que le plan Boîte à Outils Professionnelle vous mettra à niveau vers un support prioritaire, ce qui signifie des temps de réponse plus rapides et une assistance spécialisée."
+      "question": "What support and guidance can I expect from Decernia?",
+      "answer": "You will always work together with experienced advisors. Within 'Architecture Foundation,' we provide the necessary frameworks and support on weekdays. With 'Strategy & Governance,' you are guaranteed direct, priority access to our senior advisors during crucial decision-making moments."
     },
     {
-      "question": "À quelle fréquence sont mises à jour les ressources en ligne et les tutoriels?",
-      "answer": "Nous mettons régulièrement à jour nos ressources en ligne et nos tutoriels pour refléter les dernières tendances en matière de bricolage et de construction, ainsi que les introductions de nouveaux outils et techniques. Notre matériel vise à être complet et convivial pour tous les niveaux de compétence."
+      "question": "How up-to-date are Decernia's architecture frameworks and guidelines?",
+      "answer": "Our toolkit is continuously updated based on the latest laws and regulations, standards (such as NEN standards), and technological developments. This ensures you are always guaranteed future-proof advice."
     },
     {
-      "question": "ScrewFast propose-t-il des services pour les grands projets de construction?",
-      "answer": "Oui, nos Solutions Entreprise sont conçues pour les grandes entreprises ayant besoin de services complets. Nous fournissons des consultations, de la planification et de l'approvisionnement en outils et matériaux de haute qualité, ainsi que des solutions de personnel pour des besoins de construction importants. Contactez-nous pour un devis personnalisé."
+      "question": "Does Decernia also offer support for complex, organization-wide transformations?",
+      "answer": "Absolutely. Our 'Enterprise Solutions' are specifically designed for complex change challenges in highly regulated domains. We offer strategic consultation, integral architecture governance, and executive-level guidance. Contact us for an alignment consultation."
     }
   ]
 }
