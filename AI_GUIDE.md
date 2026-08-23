@@ -1,14 +1,23 @@
-# ScrewFast AI Guide
+# Decernia AI Guide
 
 For AI assistants (Cursor, Copilot, Claude, ChatGPT): this file describes project structure, conventions, and where to find or add code. See [README.md](README.md) for human-facing setup and features.
 
 ## Project Overview
 
-ScrewFast is an Astro + Tailwind CSS + Preline UI template for landing pages, blogs, documentation, and product/content pages. Stack: Astro 7, Tailwind v4 (via `@tailwindcss/vite`), Preline (modals, accordions), Starlight (docs), Lenis (smooth scroll), GSAP (animations).
+Decernia is an Astro + Tailwind CSS + Preline UI template for landing pages, blogs, documentation, and product/content pages, heavily adapted for Decernia (focus on IT architecture, governance, and strategy). Stack: Astro 7, Tailwind v4 (via `@tailwindcss/vite`), Preline (modals, accordions), Starlight (docs), Lenis (smooth scroll), GSAP (animations).
 
-Marketing site locales: **en** and **fr** (file-based routes under `src/pages/` and `src/pages/en/`). Use `getMarketingLocale()` from [`src/utils/locale.ts`](src/utils/locale.ts) for nav/footer/forms — do not rely only on `Astro.currentLocale` for marketing pages.
+Marketing site locales: **en** and **nl** (file-based routes under `src/pages/` and `src/pages/en/`). Use `getMarketingLocale()` from [`src/utils/locale.ts`](src/utils/locale.ts) for nav/footer/forms — do not rely only on `Astro.currentLocale` for marketing pages.
 
 Docs (Starlight) locales: en, de, es, fa, fr, ja, zh-cn. Guides and welcome are translated; `construction/`, `tools/`, and `advanced/` fall back to English for non-root locales.
+
+## Local Workflow & Commands
+
+1. **Start development:**
+   - Open the project via GitHub Desktop.
+   - Open Visual Studio Code and start the webserver with: `pnpm dev`
+2. **Formatting before commit:**
+   - For small changes: `npx prettier --write "."`
+   - For major changes: `pnpm run format:fix`
 
 ## Path Aliases
 
@@ -29,19 +38,19 @@ Example: `import { SITE } from "@data/constants";` – do not use `@/data_files/
 
 Defined in [tsconfig.json](tsconfig.json).
 
-## Key Folders
+## Key Folders & Text Locations (Decernia Structure)
 
-| Purpose                 | Path                               | Notes                                                                                                                                                                                                                     |
-| ----------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Reusable UI & sections  | [src/components/](src/components/) | `sections/` for landing, features, navbar&footer, testimonials, pricing, misc; `ui/` for buttons, cards, forms, icons, etc.                                                                                               |
-| Layout                  | [src/layouts/](src/layouts/)       | [MainLayout.astro](src/layouts/MainLayout.astro) wraps Navbar, main slot, FooterSection.                                                                                                                                  |
-| Pages                   | [src/pages/](src/pages/)           | Astro file-based routing; `fr/` for French locale.                                                                                                                                                                        |
-| Content (collections)   | [src/content/](src/content/)       | `blog/`, `products/`, `insights/`; `docs/` for Starlight (i18n subdirs: guides, construction, tools, advanced, de, es, fa, fr, ja, zh-cn).                                                                                |
-| Static assets           | [public/](public/)                 | Served as-is.                                                                                                                                                                                                             |
-| Navigation & UI helpers | [src/utils/](src/utils/)           | [navigation.ts](src/utils/navigation.ts) exports default `{ navBarLinks, footerLinks, socialLinks }`; [fr/navigation.ts](src/utils/en/navigation.ts) for French. Navbar/Footer use `Astro.currentLocale` to pick strings. |
-| Site config & JSON data | [src/data_files/](src/data_files/) | [constants.ts](src/data_files/constants.ts): SITE, SEO, OG, partnersData; faqs.json, features.json, pricing.json, mega_link.ts; `fr/` for localized JSON.                                                                 |
-| Styles & scripts        | [src/assets/](src/assets/)         | `styles/` (global.css, lenis.css, starlight); `scripts/` e.g. [lenisSmoothScroll.js](src/assets/scripts/lenisSmoothScroll.js).                                                                                            |
-| Images (imported)       | [src/images/](src/images/)         | Use with `@images/`; processed by Astro.                                                                                                                                                                                  |
+| Purpose                 | Path                               | Notes                                                                                                                                                                                                                                                                                            |
+| ----------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Reusable UI & sections  | [src/components/](src/components/) | `sections/` for landing, features, navbar&footer, testimonials, pricing, misc; `ui/` for buttons, cards, forms, icons, etc.                                                                                                                                                                      |
+| Layout                  | [src/layouts/](src/layouts/)       | [MainLayout.astro](src/layouts/MainLayout.astro) wraps Navbar, main slot, FooterSection.                                                                                                                                                                                                         |
+| Pages (Home, Services)  | [src/pages/](src/pages/)           | Astro file-based routing.<br>- **Home:** NL (`src/pages/index.astro`), EN (`src/pages/en/index.astro`)<br>- **Services:** NL (`src/pages/services.astro`), EN (`src/pages/en/services.astro`)<br>- **Products:** NL (`src/pages/products/index.astro`), EN (`src/pages/en/products/index.astro`) |
+| Content (collections)   | [src/content/](src/content/)       | `blog/` (`src/content/blog/` & `src/content/blog/en/`), `products/`, `insights/`; `docs/` for Starlight.                                                                                                                                                                                         |
+| Static assets           | [public/](public/)                 | Served as-is.                                                                                                                                                                                                                                                                                    |
+| Navigation & UI helpers | [src/utils/](src/utils/)           | [navigation.ts](src/utils/navigation.ts) exports default `{ navBarLinks, footerLinks, socialLinks }`; localized navigation for non-default locales. Navbar/Footer use locale strings.                                                                                                            |
+| Site config & JSON data | [src/data_files/](src/data_files/) | [constants.ts](src/data_files/constants.ts): SITE, SEO, OG, partnersData; localized JSONs (`faqs.json`, `pricing.json`, `features.json`) under NL root and `en/` subfolders.                                                                                                                     |
+| Styles & scripts        | [src/assets/](src/assets/)         | `styles/` (global.css, lenis.css, starlight); `scripts/` e.g. [lenisSmoothScroll.js](src/assets/scripts/lenisSmoothScroll.js).                                                                                                                                                                   |
+| Images (imported)       | [src/images/](src/images/)         | Use with `@images/`; processed by Astro.                                                                                                                                                                                                                                                         |
 
 ## Layout and Main Components
 
@@ -70,4 +79,4 @@ Defined in [tsconfig.json](tsconfig.json).
 - Add or edit content in [src/content/](src/content/) and respect [content.config.ts](src/content.config.ts) schemas.
 - Follow [MainLayout.astro](src/layouts/MainLayout.astro) for layout and Meta/SEO.
 - Use **Tailwind v4** only; do not use Tailwind v3 syntax.
-- Navigation/footer copy: edit [src/utils/navigation.ts](src/utils/navigation.ts) (and [src/utils/en/navigation.ts](src/utils/en/navigation.ts) for French); Navbar/Footer receive the default export as `strings`.
+- Navigation/footer copy: edit [src/utils/navigation.ts](src/utils/navigation.ts) (and localized variants); Navbar/Footer receive the default export as `strings`.

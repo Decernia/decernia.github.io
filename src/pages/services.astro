@@ -92,10 +92,10 @@ const articles: Article[] = [
   },
 ];
 
-const pageTitle: string = `Services | ${SITE.title}`;
+const pageTitle: string = `Diensten | ${SITE.title}`;
 const metaDescription =
-  'Uniting expertise with your vision, ScrewFast provides exceptional service and comprehensive solutions in the hardware and construction industry, from consultation to project completion.';
-const ogTitle = 'Expert Consultation Services | ScrewFast';
+  'Door deskundigheid te verbinden met uw visie, biedt Decernia uitzonderlijke begeleiding en integrale oplossingen op het gebied van organisatieinrichting en architectuur, van strategische advisering tot succesvolle realisatie.';
+const ogTitle = 'Expert Adviesdiensten | Decernia';
 ---
 
 <MainLayout
@@ -105,9 +105,9 @@ const ogTitle = 'Expert Consultation Services | ScrewFast';
   structuredData={{
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    '@id': 'https://decernia.nl/services',
-    url: 'https://decernia.nl/services',
-    name: 'Expert Consultation Services | Decernia',
+    '@id': 'https://decernia.nl/diensten',
+    url: 'https://decernia.nl/diensten',
+    name: 'Expert Adviesdiensten | Decernia',
     description:
       'Door deskundigheid te verbinden met uw visie, biedt Decernia uitzonderlijke begeleiding en integrale oplossingen op het gebied van organisatieinrichting en architectuur, van strategische advisering tot succesvolle realisatie.',
     isPartOf: {
@@ -120,9 +120,6 @@ const ogTitle = 'Expert Consultation Services | ScrewFast';
     inLanguage: 'nl-NL',
   }}
 >
-  {
-    /* MainSection is the introductory section of the page, it also contains a CTA button */
-  }
   <MainSection
     title="Verbinden van expertise met uw Visie"
     subTitle="Bij Decernia zijn we er trots op dat we integrale oplossingen en hoogwaardige begeleiding bieden op het gebied van organisatie-inrichting en architectuur. Ons ervaren team staat klaar om uw veranderopgave van idee tot succesvolle realisatie te ondersteunen met een breed scala aan gespecialiseerde adviesdiensten."
@@ -130,16 +127,7 @@ const ogTitle = 'Expert Consultation Services | ScrewFast';
     btnTitle="Plan een verkennend gesprek"
     btnURL="#"
   />
-  {
-    /* RightSection and LeftSection contain details about various services along with pertinent imagery.
-  They alternate for variety in design.
-  The 'btnExists' property is used to toggle the display of a button in these sections.
-  When btnExists={true}, a button is displayed.
-  This can be used to link to more detailed information or related resources.
-  RightSection can also conditionally render one or two images based on the 'single' property.
-  If 'single' is true, it displays one image, otherwise it displays two.
-  */
-  }
+
   {
     articles.map(article => {
       return article.isRightSection ? (
@@ -168,7 +156,7 @@ const ogTitle = 'Expert Consultation Services | ScrewFast';
       );
     })
   }
-  {/* FeaturesStats section showcases essential stats valuable to users */}
+
   <FeaturesStats
     title="In cijfers"
     subTitle="Onze toewijding aan kwaliteit en robuustheid is zichtbaar in elke opgave die wij aanvaarden. Bij Decernia zetten we ons in voor het leveren van toonaangevende advies- en regiediensten die borgen dat uw organisatie-inrichting en architectuur duurzaam bestendig zijn."
