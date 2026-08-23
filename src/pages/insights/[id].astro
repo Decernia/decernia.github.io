@@ -5,13 +5,13 @@ import InsightDetail from '@components/sections/insights/InsightDetail.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const insightPosts = await getCollection('insights', ({ id }) =>
-    id.startsWith('en/')
+  const insightPosts = await getCollection(
+    'insights',
+    ({ id }) => !id.startsWith('en/')
   );
   return insightPosts.map(post => {
-    const idWithoutLang = post.id.replace(/^en\//, '');
     return {
-      params: { id: idWithoutLang },
+      params: { id: post.id },
       props: { post },
     };
   });
@@ -22,7 +22,7 @@ const { post } = Astro.props;
 const pageTitle: string = `${post.data.title} | ${SITE.title}`;
 const metaDescription = post.data.description;
 const ogTitle = `${post.data.title} | Insights | ${SITE.title}`;
-const insightId = post.id.replace(/^en\//, '');
+const insightId = post.id;
 ---
 
 <MainLayout

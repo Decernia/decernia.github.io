@@ -9,6 +9,9 @@ interface Props {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+// Bepaal automatisch of dit inzicht Engels is op basis van de ID
+const isEnglish = post.id.startsWith('en/');
 ---
 
 <section class="py-6 sm:py-8 lg:py-12">
@@ -39,7 +42,9 @@ const { Content } = await render(post);
             >
             </div>
           </div>
-          <p class="text-sm text-pretty text-neutral-500">Table of Contents:</p>
+          <p class="text-sm text-pretty text-neutral-500">
+            {isEnglish ? 'Table of Contents:' : 'Inhoudsopgave:'}
+          </p>
           <div id="toc" class="">
             <ul
               class="space-y-2 text-base text-pretty text-neutral-700 transition duration-300 dark:text-neutral-400"

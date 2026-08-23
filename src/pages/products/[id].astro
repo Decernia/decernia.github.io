@@ -5,13 +5,15 @@ import { getCollection } from 'astro:content';
 import { SITE } from '@data/constants';
 
 export async function getStaticPaths() {
-  const productEntries = await getCollection('products', ({ id }) =>
-    id.startsWith('en/')
+  // Haal alleen de Nederlandse producten op (alles wat NIET in de en/ map staat)
+  const productEntries = await getCollection(
+    'products',
+    ({ id }) => !id.startsWith('en/')
   );
   return productEntries.map(product => {
-    const idWithoutLang = product.id.replace(/^en\//, '');
+    // Aangezien ze in de root staan, is de id zelf gelijk aan de slug (geen 'en/' om te strippen)
     return {
-      params: { id: idWithoutLang },
+      params: { id: product.id },
       props: { product },
     };
   });
@@ -21,8 +23,8 @@ const { product } = Astro.props;
 
 const pageTitle: string = `${product.data.title} | ${SITE.title}`;
 const metaDescription = product.data.description;
-const ogTitle = `${product.data.title} | Hardware Tools | ScrewFast`;
-const productSlug = product.data.title.toLowerCase().replace(/\s+/g, '-');
+const ogTitle = `${product.data.title} | Decernia`;
+const productSlug = product.id;
 ---
 
 <MainLayout
@@ -37,7 +39,7 @@ const productSlug = product.data.title.toLowerCase().replace(/\s+/g, '-');
     description: product.data.description,
     brand: {
       '@type': 'Brand',
-      name: 'ScrewFast',
+      name: 'Decernia',
     },
   }}
 >
