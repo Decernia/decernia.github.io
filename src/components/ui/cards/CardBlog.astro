@@ -11,6 +11,13 @@ interface Props {
   blogEntry: CollectionEntry<'blog'>;
   blogLocale?: string;
 }
+
+// Haal 'en/' weg uit de ID om de schone slug te krijgen
+const cleanSlug = blogEntry.id.replace(/^en\//, '');
+
+// Bepaal de juiste URL op basis van de locale
+const blogUrl =
+  blogLocale === 'en' ? `/en/blog/${cleanSlug}/` : `/blog/${cleanSlug}/`;
 ---
 
 {
@@ -21,9 +28,7 @@ interface Props {
 }
 <a
   class="group relative block rounded-xl ring-zinc-500 outline-hidden transition duration-500 focus-visible:ring-3 dark:ring-zinc-200 dark:focus:outline-hidden"
-  href={blogLocale && blogLocale !== 'en'
-    ? `/${blogLocale}/blog/${blogEntry.id.replace(/^fr\//, '')}/`
-    : `/blog/${blogEntry.id.replace(/^en\//, '')}/`}
+  href={blogUrl}
   data-astro-prefetch
 >
   {
