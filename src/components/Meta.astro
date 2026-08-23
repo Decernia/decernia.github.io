@@ -1,8 +1,6 @@
 ---
 import { getImage } from 'astro:assets';
 import { OG, SEO, SITE } from '@data/constants';
-import faviconSvgSrc from '@images/icon.svg';
-import faviconSrc from '@images/icon.png';
 
 // Default properties for the Meta component.
 const defaultProps = {
@@ -56,19 +54,6 @@ function createHref(_lang: string, prefix: string, path: string): string {
 }
 
 const fullPath: string = Astro.url.pathname;
-
-// Generate and optimize the favicon images
-const faviconSvg = await getImage({
-  src: faviconSvgSrc,
-  format: 'svg',
-});
-
-const appleTouchIcon = await getImage({
-  src: faviconSrc,
-  width: 180,
-  height: 180,
-  format: 'png',
-});
 ---
 
 {/* Inject structured data (JSON-LD) */}
@@ -123,16 +108,14 @@ const appleTouchIcon = await getImage({
 <meta name="twitter:description" content={ogDescription} />
 <meta name="twitter:image" content={socialImage} />
 
-{/* Manifest and Sitemap */}
-<link rel="manifest" href="/manifest.json" />
+{/* Sitemap */}
 <link rel="sitemap" href="/sitemap-index.xml" />
 
-{/* Favicons */}
-<link href="/favicon.ico" rel="icon" sizes="any" type="image/x-icon" />
-<link href={faviconSvg.src} rel="icon" type="image/svg+xml" sizes="any" />
+{/* App Favicons & Web Manifest */}
+<link rel="icon" href="/favicon.ico" sizes="any" type="image/x-icon" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
 <meta name="mobile-web-app-capable" content="yes" />
-<link href={appleTouchIcon.src} rel="apple-touch-icon" />
-<link href={appleTouchIcon.src} rel="shortcut icon" />
-
-{/* Theme Color */}
-<meta name="theme-color" content="#facc15" />
+<meta name="theme-color" content="#203957" />
