@@ -1,0 +1,91 @@
+---
+// Importing necessary components
+import MainLayout from '@/layouts/MainLayout.astro';
+import { SITE } from '@data/constants';
+
+// Testimonial data
+const testimonials = [
+  {
+    content:
+      ' "Sinds de overstap naar de architectuurkaders van Decernia is de realisatiekracht binnen onze projecten spectaculair toegenomen. De robuustheid van de sturingsmodellen en de precisie van de adviezen zijn simpelweg ongeëvenaard. Het is verfrissend om te werken met een partner die de dagelijkse praktijk en bestuurlijke dynamiek echt begrijpt." ',
+    author: 'Jason Clark',
+    role: 'Teamleider | TopBuild',
+    avatarSrc:
+      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80',
+    avatarAlt: 'Image Description',
+  },
+  {
+    content:
+      ' "Als business architect ben ik continu op zoek naar hoogwaardige kaders en instrumenten die helpen om strategische visies om te zetten in de praktijk. Het veelzijdige instrumentarium van Decernia is daarin van doorslaggevende waarde geweest: het biedt precies de juiste balans tussen robuuste kwaliteit en flexibele toepasbaarheid. De doortastende begeleiding op bestuurlijk niveau maakte het plaatje compleet!" ',
+    author: 'Maria Gonzalez',
+    role: 'Business Architect | Creative Spaces',
+    avatarSrc:
+      'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80',
+    avatarAlt: 'Image Description',
+  },
+  {
+    content:
+      ' "Ik ben al meer dan 15 jaar actief in het vak, en ik kan oprecht zeggen dat de sturingsmodellen en kaders van Decernia tot de sterkste behoren die ik ben tegengekomen. Ze bieden ongeëvenaarde houvast, waardoor ik vol vertrouwen koers houd bij elke organisatorische koppeling en systeemintegratie. Zonder twijfel een partner die écht oog heeft voor ons succes." ',
+    author: 'Richard Kim',
+    role: 'Lead Developer | WoodWright',
+    avatarSrc:
+      'https://images.unsplash.com/photo-1474176857210-7287d38d27c6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80',
+    avatarAlt: 'Image Description',
+  },
+];
+
+const pageTitle: string = `Onze Klanten & Ervaringen | ${SITE.title}`;
+const metaDescription =
+  'Lees hoe organisaties en professionals de samenwerking met Decernia en de inzet van onze architectuurkaders ervaren.';
+---
+
+<MainLayout title={pageTitle} customDescription={metaDescription}>
+  <div
+    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  >
+    <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
+      <div class="flex flex-col gap-2">
+        <h1
+          class="text-2xl font-bold tracking-tight text-balance text-neutral-800 md:text-4xl md:leading-tight dark:text-neutral-200"
+        >
+          Wat onze klanten zeggen
+        </h1>
+        <p
+          class="max-w-(--breakpoint-sm) text-pretty text-neutral-600 dark:text-neutral-400"
+        >
+          Ontdek hoe onze kaders en instrumenten bijdragen aan het succes van
+          uiteenlopende veranderopgaven.
+        </p>
+      </div>
+    </div>
+
+    <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+      {
+        testimonials.map(item => (
+          <div class="flex flex-col overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-800">
+            <div class="flex-auto p-6 sm:p-8">
+              <p class="text-neutral-600 dark:text-neutral-300">
+                {item.content}
+              </p>
+            </div>
+            <div class="mt-auto flex items-center gap-4 bg-neutral-200/60 p-6 sm:px-8 sm:py-5 dark:bg-neutral-900/60">
+              <img
+                class="h-12 w-12 rounded-full object-cover"
+                src={item.avatarSrc}
+                alt={item.avatarAlt}
+              />
+              <div>
+                <h3 class="font-semibold text-neutral-800 dark:text-neutral-200">
+                  {item.author}
+                </h3>
+                <p class="text-sm text-neutral-500 dark:text-neutral-400">
+                  {item.role}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </section>
+  </div>
+</MainLayout>
