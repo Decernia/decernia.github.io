@@ -6,6 +6,7 @@ import HeroSectionAlt from '@components/sections/landing/HeroSectionAlt.astro';
 import ClientsSection from '@components/sections/landing/ClientsSection.astro';
 import FeaturesGeneral from '@components/sections/features/FeaturesGeneral.astro';
 import FeaturesNavs from '@components/sections/features/FeaturesNavs.astro';
+import FeaturesStatsAlt from '@components/sections/features/FeaturesStatsAlt.astro';
 import TestimonialsSection from '@components/sections/testimonials/TestimonialsSection.astro';
 import PricingSection from '@components/sections/pricing/PricingSection.astro';
 import FAQ from '@components/sections/misc/FAQ.astro';
@@ -14,7 +15,6 @@ import heroImage from '@images/hero-image.avif';
 import faqs from '@data/faqs.json';
 import features from '@data/features.json';
 import pricing from '@data/pricing.json';
-import featureImage from '@images/features-image.avif';
 import construction from '@images/Architectuurtools1.avif';
 import tools from '@images/whiteboard1.avif';
 import dashboard from '@images/dashboard-image.avif';
@@ -24,7 +24,7 @@ import { partnersData } from '@/data_files/constants';
 const avatarSrcs: Array<string> = [
   'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80',
   'https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80',
-  'https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80',
+  'https://images.unsplash.com/photo-1541101767292-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80',
   'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80',
 ];
 ---
@@ -58,11 +58,21 @@ const avatarSrcs: Array<string> = [
     partners={partnersData}
   />
 
+  <!-- Het 'Why' blok met foto links -->
+  <FeaturesStatsAlt
+    title="Waarom Kiezen voor Decernia?"
+    subTitle="Vertaal uw strategische visie naar tastbare resultaten met het instrumentarium van Decernia. Of u nu begint met de eerste contouren van een veranderopgave en midden in een complexe organisatietransformatie staat: onze kaders zijn ontworpen om met vertrouwen te sturen."
+    benefits={[
+      'Robuuste en beproefde kaders voor duurzame sturing en resultaat.',
+      'Vernieuwende methodieken afgestemd op de dynamiek van moderne organisaties.',
+      'Betrokken begeleiding op senior niveau, gericht op het succes van uw opgave.',
+    ]}
+  />
+
+  <!-- Behoud van FeaturesGeneral (inclusief de tekst en 4 icoontjes), maar zonder de grote foto -->
   <FeaturesGeneral
     title="Inspringen op complexe marktbehoeften"
     subTitle="Organisaties in hooggereguleerde en data-intensieve domeinen staan voor de uitdaging om strategie, wetgeving en ICT-architectuur naadloos op elkaar aan te sluiten. Decernia biedt de strategische kaders, beproefde methodieken en domeinexpertise die nodig zijn om complexe veranderopgaven beheersbaar te maken en duurzame resultaten te borgen."
-    src={featureImage}
-    alt="Strategische architectuur en digitalisering bij Decernia"
     features={features}
   />
 

@@ -6,6 +6,7 @@ import HeroSectionAlt from '@components/sections/landing/HeroSectionAlt.astro';
 import ClientsSection from '@components/sections/landing/ClientsSection.astro';
 import FeaturesGeneral from '@components/sections/features/FeaturesGeneral.astro';
 import FeaturesNavs from '@components/sections/features/FeaturesNavs.astro';
+import FeaturesStatsAlt from '@components/sections/features/FeaturesStatsAlt.astro';
 import TestimonialsSection from '@components/sections/testimonials/TestimonialsSection.astro';
 import PricingSection from '@components/sections/pricing/PricingSection.astro';
 import FAQ from '@components/sections/misc/FAQ.astro';
@@ -14,7 +15,6 @@ import heroImage from '@images/hero-image.avif';
 import faqs from '@data/en/faqs.json';
 import features from '@data/en/features.json';
 import pricing from '@data/en/pricing.json';
-import featureImage from '@images/features-image.avif';
 import construction from '@images/Architectuurtools1.avif';
 import tools from '@images/whiteboard1.avif';
 import dashboard from '@images/dashboard-image.avif';
@@ -58,11 +58,23 @@ const avatarSrcs: Array<string> = [
     partners={partnersData}
   />
 
+  {/* Features statistics section ('Why' block with image on the left) */}
+  <FeaturesStatsAlt
+    title="Why Choose Decernia?"
+    subTitle="Transform complex organizational strategy into actionable architecture. Whether mapping domain boundaries or establishing governance frameworks, Decernia gives you the control and clarity to build with confidence."
+    benefits={[
+      'Robust and deterministic frameworks for scalable architecture.',
+      'Innovative solutions tailored to modern IT & business alignment.',
+      'Dedicated consultancy support to ensure project success.',
+    ]}
+  />
+
+  {
+    /* Features general section with the 4 icon blocks, without the large feature image */
+  }
   <FeaturesGeneral
     title="Addressing Complex Market Demands"
     subTitle="Organizations in highly regulated and data-intensive domains face the challenge of seamlessly aligning strategy, legislation, and IT architecture. Decernia provides the strategic frameworks, proven methodologies, and domain expertise needed to make complex transformations manageable and secure sustainable results."
-    src={featureImage}
-    alt="Strategic architecture and digitalization at Decernia"
     features={features}
   />
 

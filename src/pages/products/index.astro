@@ -4,7 +4,6 @@ import MainLayout from '@/layouts/MainLayout.astro';
 import PrimaryCTA from '@components/ui/buttons/PrimaryCTA.astro';
 import CardSmall from '@components/ui/cards/CardSmall.astro';
 import CardWide from '@components/ui/cards/CardWide.astro';
-import FeaturesStatsAlt from '@components/sections/features/FeaturesStatsAlt.astro';
 
 // Importing necessary functions from Astro
 import { getCollection } from 'astro:content';
@@ -91,14 +90,4 @@ const ogTitle = 'Architectuur Tools | Decernia';
       }
     </section>
   </div>
-  {/* Features statistics section */}
-  <FeaturesStatsAlt
-    title="Waarom Kiezen voor Decernia?"
-    subTitle="Vertaal uw strategische visie naar tastbare resultaten met het instrumentarium van Decernia. Of u nu begint met de eerste contouren van een veranderopgave of midden in een complexe organisatietransformatie staat: onze kaders zijn ontworpen om met vertrouwen te sturen."
-    benefits={[
-      'Robuuste en beproefde kaders voor duurzame sturing en resultaat.',
-      'Vernieuwende methodieken afgestemd op de dynamiek van moderne organisaties.',
-      'Betrokken begeleiding op senior niveau, gericht op het succes van uw opgave.',
-    ]}
-  />
 </MainLayout>
