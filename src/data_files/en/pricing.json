@@ -4,6 +4,7 @@
   "badge": "Most Popular",
   "thirdOption": "Customized or Complex Portfolio?",
   "btnText": "Request a Tailored Proposal",
+  "btnLink": "/en/contact?package=custom",
 
   "starterKit": {
     "name": "Architecture Foundation",
@@ -17,7 +18,7 @@
       "Regular advisory support"
     ],
     "purchaseBtnTitle": "Start with Foundation",
-    "purchaseLink": "#"
+    "purchaseLink": "/en/services/packages#foundation"
   },
 
   "professionalToolbox": {
@@ -33,6 +34,6 @@
       "Scalability benefits for long-term trajectories"
     ],
     "purchaseBtnTitle": "Choose Strategy & Governance",
-    "purchaseLink": "#"
+    "purchaseLink": "/en/services/packages#strategy-governance"
   }
 }

@@ -1,0 +1,62 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import PrimaryCTA from '@components/ui/buttons/PrimaryCTA.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+---
+
+<MainLayout title="Advisory Packages | Decernia" lang="en">
+  <section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <div class="mb-12 text-center">
+      <h1
+        class="text-3xl font-extrabold text-neutral-800 sm:text-4xl dark:text-neutral-100"
+      >
+        Our Advisory Packages
+      </h1>
+      <p class="mt-4 text-lg text-neutral-600 dark:text-neutral-400">
+        Choose the service model that fits your organization's needs and
+        dynamics.
+      </p>
+    </div>
+
+    {/* Section 1: Architecture Foundation */}
+    <div
+      id="foundation"
+      class="mb-16 scroll-mt-24 rounded-2xl border border-neutral-200 bg-neutral-100 p-8 dark:border-neutral-700 dark:bg-neutral-800"
+    >
+      <h2 class="text-2xl font-bold text-neutral-800 dark:text-neutral-100">
+        Architecture Foundation
+      </h2>
+      <p class="mt-2 text-neutral-600 dark:text-neutral-400">
+        Ideal for executing a specific change initiative.
+      </p>
+
+      <div class="mt-6">
+        <PrimaryCTA
+          title="Request Architecture Foundation"
+          url={getRelativeLocaleUrl('en', 'contact') + '?package=foundation'}
+        />
+      </div>
+    </div>
+
+    {/* Section 2: Strategy & Governance */}
+    <div
+      id="strategy-governance"
+      class="scroll-mt-24 rounded-2xl border border-neutral-200 bg-neutral-100 p-8 dark:border-neutral-700 dark:bg-neutral-800"
+    >
+      <h2 class="text-2xl font-bold text-neutral-800 dark:text-neutral-100">
+        Strategy & Governance
+      </h2>
+      <p class="mt-2 text-neutral-600 dark:text-neutral-400">
+        Best choice for ongoing support and complex transformations.
+      </p>
+
+      <div class="mt-6">
+        <PrimaryCTA
+          title="Request Strategy & Governance"
+          url={getRelativeLocaleUrl('en', 'contact') +
+            '?package=strategy-governance'}
+        />
+      </div>
+    </div>
+  </section>
+</MainLayout>

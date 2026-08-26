@@ -20,6 +20,11 @@ const copy =
         formSubTitle: "We'll get back to you within 1-2 business days.",
         firstName: 'First Name',
         lastName: 'Last Name',
+        packageLabel: 'Subject / Advisory Package',
+        packageDefault: 'General Question / Other',
+        packageFundament: 'Architecture Foundation (€490 / mo)',
+        packageStrategie: 'Strategy & Governance (€890 / mo)',
+        packageCustom: 'Custom Solution or Complex Portfolio',
         details: 'Your message or question',
         send: 'Send Message',
         demoMessage:
@@ -47,6 +52,11 @@ const copy =
         formSubTitle: 'We reageren binnen 1 tot 2 werkdagen.',
         firstName: 'Voornaam',
         lastName: 'Achternaam',
+        packageLabel: 'Onderwerp / Adviespakket',
+        packageDefault: 'Algemene vraag / Overig',
+        packageFundament: 'Architectuur Fundament (€490 / mnd)',
+        packageStrategie: 'Strategie & Regie (€890 / mnd)',
+        packageCustom: 'Maatwerk of Complex Portfolio',
         details: 'Uw bericht of vraagstuk',
         send: 'Verstuur bericht',
         demoMessage:
@@ -104,6 +114,29 @@ const copy =
             </div>
             <EmailContactInput id="hs-email-contacts" />
             <PhoneInput id="hs-phone-number" />
+
+            {/* Dropdown voor selectie van pakket/onderwerp */}
+            <div>
+              <label
+                for="hs-select-package"
+                class="mb-2 block text-sm font-medium text-neutral-800 dark:text-neutral-200"
+              >
+                {copy.packageLabel}
+              </label>
+              <select
+                id="hs-select-package"
+                name="package"
+                class="block w-full rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-700 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 focus:outline-none dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-300"
+              >
+                <option value="other">{copy.packageDefault}</option>
+                <option value="foundation">{copy.packageFundament}</option>
+                <option value="strategy-governance"
+                  >{copy.packageStrategie}</option
+                >
+                <option value="custom">{copy.packageCustom}</option>
+              </select>
+            </div>
+
             <TextAreaInput
               id="hs-about-contacts"
               label={copy.details}
@@ -170,3 +203,62 @@ const copy =
     </div>
   </div>
 </section>
+
+<!-- Client script dat de URL query direct uit de browser leest -->
+<script is:inline>
+  const updateDropdown = () => {
+    // 1. Haal de parameter direct uit de browser URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const rawPackage =
+      urlParams.get('package') || urlParams.get('pakket') || '';
+    const pkgRaw = rawPackage.toLowerCase().trim();
+
+    if (!pkgRaw) return;
+
+    let targetValue = 'other';
+    if (['foundation', 'fundament'].includes(pkgRaw)) {
+      targetValue = 'foundation';
+    } else if (
+      ['strategy-governance', 'strategie-regie', 'strategie'].includes(pkgRaw)
+    ) {
+      targetValue = 'strategy-governance';
+    } else if (['custom', 'op-maat', 'op maat', 'tailored'].includes(pkgRaw)) {
+      targetValue = 'custom';
+    }
+
+    const selectEl = document.getElementById('hs-select-package');
+    if (!selectEl) return;
+
+    // 2. Zet de native HTML select waarde
+    selectEl.value = targetValue;
+
+    // 3. Update Preline UI (indien actief)
+    const applyPreline = () => {
+      if (window.HSSelect) {
+        const instance = window.HSSelect.getInstance(selectEl);
+        if (instance) {
+          instance.setValue(targetValue);
+          return true;
+        }
+      }
+      return false;
+    };
+
+    if (!applyPreline()) {
+      let attempts = 0;
+      const interval = setInterval(() => {
+        attempts++;
+        if (applyPreline() || attempts > 20) {
+          clearInterval(interval);
+        }
+      }, 50);
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateDropdown);
+  } else {
+    updateDropdown();
+  }
+  document.addEventListener('astro:page-load', updateDropdown);
+</script>

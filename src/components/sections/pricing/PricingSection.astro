@@ -19,14 +19,13 @@ type Product = {
 };
 
 interface PricingSectionProps {
-  title: string;
-  subTitle: string;
-  badge: string;
-  thirdOption: string;
-  btnText: string;
   pricing: {
     title: string;
     subTitle: string;
+    badge: string;
+    thirdOption: string;
+    btnText: string;
+    btnLink?: string; // <--  URL uit Pricing JSON
     starterKit: Product;
     professionalToolbox: Product;
   };
@@ -153,6 +152,6 @@ interface PricingSectionProps {
       {pricing.thirdOption}
     </p>
 
-    <SecondaryCTA title={pricing.btnText} url="#" />
+    <SecondaryCTA title={pricing.btnText} url={pricing.btnLink || '/contact'} />
   </div>
 </section>

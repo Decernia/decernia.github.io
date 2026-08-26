@@ -4,6 +4,7 @@
   "badge": "Meest gekozen",
   "thirdOption": "Maatwerk of Complex Portfolio?",
   "btnText": "Vraag een Voorstel op Maat aan",
+  "btnLink": "/contact?package=custom",
 
   "starterKit": {
     "name": "Architectuur Fundament",
@@ -17,7 +18,7 @@
       "Reguliere adviesondersteuning"
     ],
     "purchaseBtnTitle": "Start met Fundament",
-    "purchaseLink": "#"
+    "purchaseLink": "/services/packages#fundament"
   },
 
   "professionalToolbox": {
@@ -33,6 +34,6 @@
       "Schalingsvoordeel bij langdurige trajecten"
     ],
     "purchaseBtnTitle": "Kies Strategie & Regie",
-    "purchaseLink": "#"
+    "purchaseLink": "/services/packages#strategie-regie"
   }
 }

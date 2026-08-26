@@ -1,0 +1,73 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import PrimaryCTA from '@components/ui/buttons/PrimaryCTA.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+---
+
+<MainLayout title="Adviespakketten | Decernia" lang="nl">
+  <section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <div class="mb-12 text-center">
+      <h1
+        class="text-3xl font-extrabold text-neutral-800 sm:text-4xl dark:text-neutral-100"
+      >
+        Onze Adviespakketten
+      </h1>
+      <p class="mt-4 text-lg text-neutral-600 dark:text-neutral-400">
+        Kies de adviesvorm die aansluit bij de veranderopgave en dynamiek van uw
+        organisatie.
+      </p>
+    </div>
+
+    {/* Sectie 1: Architectuur Fundament */}
+    <div
+      id="fundament"
+      class="mb-16 scroll-mt-24 rounded-2xl border border-neutral-200 bg-neutral-100 p-8 dark:border-neutral-700 dark:bg-neutral-800"
+    >
+      <h2 class="text-2xl font-bold text-neutral-800 dark:text-neutral-100">
+        Architectuur Fundament
+      </h2>
+      <p class="mt-2 text-neutral-600 dark:text-neutral-400">
+        Ideaal voor de uitvoering van een specifieke veranderopgave. Met dit
+        pakket leggen we een solide en wendbare basis voor uw
+        architectuurkaders.
+      </p>
+
+      {
+        /* Hier kun je uitgebreide toelichting, punten, of een tabel toevoegen */
+      }
+
+      <div class="mt-6">
+        <PrimaryCTA
+          title="Vraag Architectuur Fundament aan"
+          url={getRelativeLocaleUrl('nl', 'contact') + '?package=foundation'}
+        />
+      </div>
+    </div>
+
+    {/* Sectie 2: Strategie & Regie */}
+    <div
+      id="strategie-regie"
+      class="scroll-mt-24 rounded-2xl border border-neutral-200 bg-neutral-100 p-8 dark:border-neutral-700 dark:bg-neutral-800"
+    >
+      <h2 class="text-2xl font-bold text-neutral-800 dark:text-neutral-100">
+        Strategie & Regie
+      </h2>
+      <p class="mt-2 text-neutral-600 dark:text-neutral-400">
+        Beste keus voor continue ondersteuning en complexe transformaties.
+        Volledig instrumentarium en prioritair advies.
+      </p>
+
+      {
+        /* Hier kun je uitgebreide toelichting, punten, of een tabel toevoegen */
+      }
+
+      <div class="mt-6">
+        <PrimaryCTA
+          title="Vraag Strategie & Regie aan"
+          url={getRelativeLocaleUrl('nl', 'contact') +
+            '?package=strategy-governance'}
+        />
+      </div>
+    </div>
+  </section>
+</MainLayout>
