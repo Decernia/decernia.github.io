@@ -4,7 +4,7 @@
   "badge": "Most Popular",
   "thirdOption": "Customized or Complex Portfolio?",
   "btnText": "Request a Tailored Proposal",
-  "btnLink": "/en/contact?package=custom",
+  "btnLink": "/en/contact?subject=custom",
 
   "starterKit": {
     "name": "Architecture Foundation",

@@ -4,7 +4,7 @@
   "badge": "Meest gekozen",
   "thirdOption": "Maatwerk of Complex Portfolio?",
   "btnText": "Vraag een Voorstel op Maat aan",
-  "btnLink": "/contact?package=custom",
+  "btnLink": "/contact?subject=custom",
 
   "starterKit": {
     "name": "Architectuur Fundament",

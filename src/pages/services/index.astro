@@ -5,6 +5,8 @@ import MainSection from '@components/ui/blocks/MainSection.astro';
 import LeftSection from '@components/ui/blocks/LeftSection.astro';
 import RightSection from '@components/ui/blocks/RightSection.astro';
 import FeaturesStats from '@components/sections/features/FeaturesStats.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { SITE } from '@data/constants';
 
 // Import necessary images
 import blueprints from '@images/blueprints-image.avif';
@@ -15,7 +17,6 @@ import aerialView from '@images/aerial-view.avif';
 import usingTools from '@images/using-tools.avif';
 import progressBuilding from '@images/progress-building.avif';
 import underConstruction from '@images/under-construction.avif';
-import { SITE } from '@data/constants';
 
 interface Article {
   isRightSection: boolean;
@@ -124,8 +125,8 @@ const ogTitle = 'Expert Adviesdiensten | Decernia';
     title="Verbinden van expertise met uw Visie"
     subTitle="Bij Decernia zijn we er trots op dat we integrale oplossingen en hoogwaardige begeleiding bieden op het gebied van organisatie-inrichting en architectuur. Ons ervaren team staat klaar om uw veranderopgave van idee tot succesvolle realisatie te ondersteunen met een breed scala aan gespecialiseerde adviesdiensten."
     btnExists={true}
-    btnTitle="Plan een verkennend gesprek"
-    btnURL="#"
+    btnTitle="Plan een vrijblijvend gesprek"
+    btnURL={getRelativeLocaleUrl('nl', 'contact') + '?subject=consultation'}
   />
 
   {

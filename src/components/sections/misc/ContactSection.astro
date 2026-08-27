@@ -20,11 +20,12 @@ const copy =
         formSubTitle: "We'll get back to you within 1-2 business days.",
         firstName: 'First Name',
         lastName: 'Last Name',
-        packageLabel: 'Subject / Advisory Package',
-        packageDefault: 'General Question / Other',
-        packageFundament: 'Architecture Foundation (€490 / mo)',
-        packageStrategie: 'Strategy & Governance (€890 / mo)',
-        packageCustom: 'Custom Solution or Complex Portfolio',
+        subjectLabel: 'Subject / Advisory Package',
+        subjectDefault: 'General Question / Other',
+        subjectConsultation: 'No-obligation Consultation',
+        subjectFundament: 'Architecture Foundation (€490 / mo)',
+        subjectStrategie: 'Strategy & Governance (€890 / mo)',
+        subjectCustom: 'Custom Solution or Complex Portfolio',
         details: 'Your message or question',
         send: 'Send Message',
         demoMessage:
@@ -52,11 +53,12 @@ const copy =
         formSubTitle: 'We reageren binnen 1 tot 2 werkdagen.',
         firstName: 'Voornaam',
         lastName: 'Achternaam',
-        packageLabel: 'Onderwerp / Adviespakket',
-        packageDefault: 'Algemene vraag / Overig',
-        packageFundament: 'Architectuur Fundament (€490 / mnd)',
-        packageStrategie: 'Strategie & Regie (€890 / mnd)',
-        packageCustom: 'Maatwerk of Complex Portfolio',
+        subjectLabel: 'Onderwerp / Adviespakket',
+        subjectDefault: 'Algemene vraag / Overig',
+        subjectConsultation: 'Vrijblijvend gesprek',
+        subjectFundament: 'Architectuur Fundament (€490 / mnd)',
+        subjectStrategie: 'Strategie & Regie (€890 / mnd)',
+        subjectCustom: 'Maatwerk of Complex Portfolio',
         details: 'Uw bericht of vraagstuk',
         send: 'Verstuur bericht',
         demoMessage:
@@ -115,25 +117,26 @@ const copy =
             <EmailContactInput id="hs-email-contacts" />
             <PhoneInput id="hs-phone-number" />
 
-            {/* Dropdown voor selectie van pakket/onderwerp */}
+            {/* Dropdown voor selectie van onderwerp/pakket */}
             <div>
               <label
-                for="hs-select-package"
+                for="hs-select-subject"
                 class="mb-2 block text-sm font-medium text-neutral-800 dark:text-neutral-200"
               >
-                {copy.packageLabel}
+                {copy.subjectLabel}
               </label>
               <select
-                id="hs-select-package"
-                name="package"
+                id="hs-select-subject"
+                name="subject"
                 class="block w-full rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-700 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 focus:outline-none dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-300"
               >
-                <option value="other">{copy.packageDefault}</option>
-                <option value="foundation">{copy.packageFundament}</option>
+                <option value="other">{copy.subjectDefault}</option>
+                <option value="consultation">{copy.subjectConsultation}</option>
+                <option value="foundation">{copy.subjectFundament}</option>
                 <option value="strategy-governance"
-                  >{copy.packageStrategie}</option
+                  >{copy.subjectStrategie}</option
                 >
-                <option value="custom">{copy.packageCustom}</option>
+                <option value="custom">{copy.subjectCustom}</option>
               </select>
             </div>
 
@@ -209,24 +212,30 @@ const copy =
   const updateDropdown = () => {
     // 1. Haal de parameter direct uit de browser URL
     const urlParams = new URLSearchParams(window.location.search);
-    const rawPackage =
-      urlParams.get('package') || urlParams.get('pakket') || '';
-    const pkgRaw = rawPackage.toLowerCase().trim();
+    const rawSubject =
+      urlParams.get('subject') || urlParams.get('onderwerp') || '';
+    const subjectRaw = rawSubject.toLowerCase().trim();
 
-    if (!pkgRaw) return;
+    if (!subjectRaw) return;
 
     let targetValue = 'other';
-    if (['foundation', 'fundament'].includes(pkgRaw)) {
+    if (['foundation', 'fundament'].includes(subjectRaw)) {
       targetValue = 'foundation';
     } else if (
-      ['strategy-governance', 'strategie-regie', 'strategie'].includes(pkgRaw)
+      ['strategy-governance', 'strategie-regie', 'strategie'].includes(
+        subjectRaw
+      )
     ) {
       targetValue = 'strategy-governance';
-    } else if (['custom', 'op-maat', 'op maat', 'tailored'].includes(pkgRaw)) {
+    } else if (
+      ['custom', 'op-maat', 'op maat', 'tailored'].includes(subjectRaw)
+    ) {
       targetValue = 'custom';
+    } else if (['consultation', 'consultatie'].includes(subjectRaw)) {
+      targetValue = 'consultation';
     }
 
-    const selectEl = document.getElementById('hs-select-package');
+    const selectEl = document.getElementById('hs-select-subject');
     if (!selectEl) return;
 
     // 2. Zet de native HTML select waarde
