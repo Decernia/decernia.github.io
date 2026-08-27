@@ -1,0 +1,86 @@
+---
+// Import necessary components, modules and types
+import MainLayout from '@/layouts/MainLayout.astro';
+import CardInsight from '@components/ui/cards/CardInsight.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import { SITE } from '@data/constants';
+
+// Get all Dutch insights posts (excluding posts in the en/ subfolder)
+const dutchInsightsEntries = await getCollection('insights', ({ id }) => {
+  return !id.startsWith('en/');
+});
+
+const insightPosts: CollectionEntry<'insights'>[] = dutchInsightsEntries;
+
+// Define variables for page content
+const title: string = 'Inzichten';
+const subTitle: string =
+  'Blijf op de hoogte van de nieuwste trends, normen en bestuurlijke ontwikkelingen binnen complexe netwerken en stelsels met de visie en duiding van de experts van Decernia.';
+
+const pageTitle: string = `Inzichten | ${SITE.title}`;
+const metaDescription =
+  'Blijf op de hoogte van de nieuwste trends en ontwikkelingen binnen complexe netwerken en stelsels met de inzichten van de experts van Decernia.';
+const ogTitle = 'Strategische Inzichten & Stelselarchitectuur | Decernia';
+---
+
+<MainLayout
+  title={pageTitle}
+  customDescription={metaDescription}
+  customOgTitle={ogTitle}
+  structuredData={{
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://decernia.nl/insights',
+    url: 'https://decernia.nl/insights',
+    name: 'Inzichten | Decernia',
+    description:
+      'Blijf op de hoogte van de nieuwste trends en ontwikkelingen binnen complexe netwerken en stelsels met de inzichten van de experts van Decernia.',
+    isPartOf: {
+      '@type': 'WebSite',
+      url: 'https://decernia.nl',
+      name: 'Decernia',
+      description:
+        'Decernia biedt hoogwaardige architectuurproducten en deskundige bestuurlijke advisering voor al uw complexe verander- en inrichtingsvraagstukken.',
+    },
+    inLanguage: 'nl-NL',
+  }}
+>
+  <section
+    class="mx-auto max-w-[85rem] space-y-8 px-4 pt-16 sm:px-6 lg:px-8 2xl:max-w-full"
+  >
+    {/* Page header */}
+    <div class="mx-auto max-w-3xl text-left sm:text-center">
+      <h1
+        class="block text-4xl font-bold tracking-tight text-balance text-neutral-800 md:text-5xl lg:text-6xl dark:text-neutral-200"
+      >
+        {title}
+      </h1>
+
+      <p
+        class="mt-4 text-lg text-pretty text-neutral-600 dark:text-neutral-400"
+      >
+        {subTitle}
+      </p>
+    </div>
+  </section>
+
+  {/* Insights section grid */}
+  <section
+    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  >
+    {
+      insightPosts.length === 0 ? (
+        <p class="text-center text-neutral-600 dark:text-neutral-400">
+          Nog geen inzichten beschikbaar. Kom binnenkort terug.
+        </p>
+      ) : (
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {insightPosts.map(insightEntry => (
+            <CardInsight insightEntry={insightEntry} />
+          ))}
+        </div>
+      )
+    }
+  </section>
+</MainLayout>

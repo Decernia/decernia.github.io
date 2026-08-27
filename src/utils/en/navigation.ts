@@ -5,6 +5,7 @@ const navBarLinks = [
   { name: 'Services', url: '/en/services' },
   { name: 'Products', url: '/en/products' },
   { name: 'Blog', url: '/en/blog' },
+  { name: 'Insights', url: '/en/insights' },
   { name: 'Contact', url: '/en/contact' },
 ];
 
@@ -22,6 +23,7 @@ const footerLinks = [
     links: [
       { name: 'About us', url: '#' },
       { name: 'Blog', url: '/en/blog' },
+      { name: 'Insights', url: '/en/insights' },
       { name: 'Careers', url: '#' },
       { name: 'Customers', url: '/en/clients' },
     ],
@@ -31,7 +33,7 @@ const footerLinks = [
 const socialLinks = {
   facebook: '#',
   x: '#',
-  github: 'https://github.com/mearashadowfax/ScrewFast',
+  github: 'https://github.com/decernia',
   google: '#',
   slack: '#',
 };

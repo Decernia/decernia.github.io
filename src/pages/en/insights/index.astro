@@ -1,0 +1,87 @@
+---
+// Import necessary components, modules and types
+import MainLayout from '@/layouts/MainLayout.astro';
+import CardInsight from '@components/ui/cards/CardInsight.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import { SITE } from '@data/constants';
+
+// Get all insights posts in English
+const englishInsightsEntries = await getCollection('insights', ({ id }) => {
+  return id.startsWith('en/');
+});
+
+const insightPosts: CollectionEntry<'insights'>[] = englishInsightsEntries;
+
+// Define variables for page content
+const title: string = 'Insights';
+const subTitle: string =
+  'Stay up to date with the latest trends and architectural evolutions through analysis from the Decernia expert team.';
+
+const pageTitle: string = `Insights | ${SITE.title}`;
+const metaDescription =
+  'Stay up to date with the latest trends and architectural evolutions through analysis from the Decernia expert team.';
+const ogTitle = 'Architectural Insights & Analysis | Decernia';
+---
+
+<MainLayout
+  lang="en"
+  title={pageTitle}
+  customDescription={metaDescription}
+  customOgTitle={ogTitle}
+  structuredData={{
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://decernia.nl/en/insights',
+    url: 'https://decernia.nl/en/insights',
+    name: 'Insights | Decernia',
+    description:
+      'Stay up to date with the latest trends and architectural evolutions through analysis from the Decernia expert team.',
+    isPartOf: {
+      '@type': 'WebSite',
+      url: 'https://decernia.nl/en',
+      name: 'Decernia',
+      description:
+        'Decernia offers strategic business architecture and IT consultancy solutions to guide complex enterprise transformations.',
+    },
+    inLanguage: 'en',
+  }}
+>
+  <section
+    class="mx-auto max-w-[85rem] space-y-8 px-4 pt-16 sm:px-6 lg:px-8 2xl:max-w-full"
+  >
+    {/* Page header */}
+    <div class="mx-auto max-w-3xl text-left sm:text-center">
+      <h1
+        class="block text-4xl font-bold tracking-tight text-balance text-neutral-800 md:text-5xl lg:text-6xl dark:text-neutral-200"
+      >
+        {title}
+      </h1>
+
+      <p
+        class="mt-4 text-lg text-pretty text-neutral-600 dark:text-neutral-400"
+      >
+        {subTitle}
+      </p>
+    </div>
+  </section>
+
+  {/* Insights section grid */}
+  <section
+    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  >
+    {
+      insightPosts.length === 0 ? (
+        <p class="text-center text-neutral-600 dark:text-neutral-400">
+          No insights yet. Check back soon!
+        </p>
+      ) : (
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {insightPosts.map(insightEntry => (
+            <CardInsight insightEntry={insightEntry} insightLocale="en" />
+          ))}
+        </div>
+      )
+    }
+  </section>
+</MainLayout>

@@ -55,7 +55,7 @@ const newsletterDemoMessage =
                   >
                     {link.name}
                   </a>
-                  {section.section === 'Company' && index === 2 ? (
+                  {link.name === 'Careers' || link.name === 'Carrière' ? (
                     <span class="ms-1 inline rounded-lg bg-orange-500 px-2 py-1 text-xs font-bold text-neutral-50">
                       {hiringBadge}
                     </span>
