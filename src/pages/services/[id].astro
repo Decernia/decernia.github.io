@@ -1,0 +1,73 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import AuthBtn from '@components/ui/buttons/AuthBtn.astro';
+import { SITE } from '@data/constants';
+
+export async function getStaticPaths() {
+  const services = [
+    {
+      id: 'strategie-realisatie',
+      title: 'Strategie omzetten naar Realisatie',
+      description:
+        'Onze ervaren adviseurs brengen precisie en sturing in elke fase van de uitvoering.',
+      content:
+        'Hier komt de volledige, diepgaande tekst over hoe Decernia strategie omzet in tastbare resultaten binnen complexe netwerken en stelsels...',
+      subjectParam: 'strategy-governance',
+    },
+    {
+      id: 'maatwerkstrategieen-complexe-opgaven',
+      title: 'Maatwerkstrategieën voor complexe opgaven',
+      description:
+        'Voor grote organisatiecontexten biedt Decernia op maat gesneden adviesmodellen om specifieke sectoruitdagingen aan te pakken.',
+      content:
+        'Hier komt de volledige, diepgaande tekst over maatwerkstrategieën voor complexe opgaven...',
+      subjectParam: 'custom-strategies',
+    },
+  ];
+
+  return services.map(service => ({
+    params: { id: service.id },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+
+const pageTitle = `${service.title} | ${SITE.title}`;
+const metaDescription = service.description;
+---
+
+<MainLayout title={pageTitle} customDescription={metaDescription}>
+  <section class="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+    <div class="space-y-6">
+      <h1
+        class="text-3xl font-bold tracking-tight text-neutral-800 md:text-4xl dark:text-neutral-200"
+      >
+        {service.title}
+      </h1>
+      <p class="text-xl text-neutral-600 dark:text-neutral-400">
+        {service.description}
+      </p>
+
+      <div class="prose prose-lg dark:prose-invert mt-8">
+        <p>{service.content}</p>
+      </div>
+
+      <!-- Directe Call-to-Action knop naar de contactpagina met het juiste onderwerp -->
+      <div class="mt-12 rounded-xl bg-neutral-100 p-8 dark:bg-neutral-800">
+        <h3
+          class="mb-2 text-xl font-bold text-neutral-800 dark:text-neutral-200"
+        >
+          Interesse in deze dienst?
+        </h3>
+        <p class="mb-6 text-neutral-600 dark:text-neutral-400">
+          Neem vrijblijvend contact met ons op om de mogelijkheden voor uw
+          organisatie te bespreken.
+        </p>
+        <a href={`/contact?subject=${service.subjectParam}`}>
+          <AuthBtn title="Direct contact opnemen" />
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
