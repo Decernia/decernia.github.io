@@ -10,22 +10,42 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@theme {
-  /* Decernia Brand Tokens */
-  --color-decernia-navy: #0f172a; /* Hoofdachtergrond */
-  --color-decernia-surface: #1e293b; /* Kaarten, headers, banners */
-  --color-decernia-border: #334155; /* Randen & dividers */
-  --color-decernia-amber: #d97706; /* Primaire actieknop / Accent */
-  --color-decernia-amber-hover: #b45309; /* Hover-state accent */
-  --color-decernia-text: #f8fafc; /* Titels & heldere tekst */
-  --color-decernia-muted: #94a3b8; /* Lopende/subtiele tekst */
+/* Decernia Brand Tokens — Light mode (standaard) */
+:root {
+  --decernia-navy: #f8fafc; /* Hoofdachtergrond (huisstijl: Off-White/Soft Slate) */
+  --decernia-surface: #ffffff; /* Kaarten, headers, banners — wit voor diepte t.o.v. pagina-bg */
+  --decernia-border: #e2e8f0; /* Randen & dividers */
+  --decernia-amber: #d97706; /* Primaire actieknop / Accent (huisstijl: Mat Warm Goud) */
+  --decernia-amber-hover: #b45309; /* Hover-state accent */
+  --decernia-text: #0f172a; /* Titels & heldere tekst (huisstijl: Diep Nachtblauw) */
+  --decernia-muted: #475569; /* Lopende/subtiele tekst (huisstijl: Warm Leisteengrijs) */
 }
 
-/* Basis html/body instellingen zonder !important hacks */
+/* Decernia Brand Tokens — Dark mode */
+.dark {
+  --decernia-navy: #0f172a;
+  --decernia-surface: #1e293b;
+  --decernia-border: #334155;
+  --decernia-amber: #d97706;
+  --decernia-amber-hover: #b45309;
+  --decernia-text: #f8fafc;
+  --decernia-muted: #94a3b8;
+}
+
+/* Koppel de losse variabelen aan de Tailwind-kleurtokens */
+@theme inline {
+  --color-decernia-navy: var(--decernia-navy);
+  --color-decernia-surface: var(--decernia-surface);
+  --color-decernia-border: var(--decernia-border);
+  --color-decernia-amber: var(--decernia-amber);
+  --color-decernia-amber-hover: var(--decernia-amber-hover);
+  --color-decernia-text: var(--decernia-text);
+  --color-decernia-muted: var(--decernia-muted);
+}
+
+/* Basis html instellingen zonder !important hacks */
 html {
-  color-scheme: dark;
-  background-color: var(--color-decernia-navy);
-  color: var(--color-decernia-muted);
+  color-scheme: light dark;
 }
 
 @layer base {
