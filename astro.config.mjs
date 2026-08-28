@@ -45,13 +45,13 @@ export default defineConfig({
       // https://starlight.astro.build/guides/sidebar/
       sidebar: [
         {
-          label: 'Quick Start Guides',
+          label: 'Snel Aan de Slag',
           items: [{ autogenerate: { directory: 'guides' } }],
         },
         {
-          label: 'Architecture & Frameworks',
+          label: 'Architectuur & Kaders',
           items: [
-            { label: 'Overview', link: 'architecture/overview/' },
+            { label: 'Overzicht', link: 'architecture/overzicht/' },
             {
               label: 'Capability Mapping',
               link: 'architecture/capability-mapping/',
@@ -59,11 +59,11 @@ export default defineConfig({
           ],
         },
         {
-          label: 'Governance & Strategy',
+          label: 'Governance & Strategie',
           items: [{ autogenerate: { directory: 'governance' } }],
         },
         {
-          label: 'Advanced Topics',
+          label: 'Geavanceerde Onderwerpen',
           items: [{ autogenerate: { directory: 'advanced' } }],
         },
       ],
