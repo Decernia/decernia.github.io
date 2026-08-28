@@ -9,6 +9,7 @@
 
 /* Dark mode colors. */
 :root {
+  font-size: 93.75%;
   --border: hsla(var(--border-neutral), 0.4);
   --backdrop-color: #272727cc;
   --sl-color-accent: #ff801f;
@@ -104,8 +105,18 @@ select:focus-visible {
   outline: -webkit-focus-ring-color auto 1px;
 }
 
+/* Cards: laat kaarten en hun titel krimpen i.p.v. de grid-kolom op te blazen.
+   Nodig voor langere Nederlandse titels (bv. "Stelsel- en Doelarchitectuur"),
+   die anders over de rechter TOC-sidebar heen kunnen schieten. */
 article.card {
   border-radius: 0.5rem;
+  min-width: 0;
+}
+
+article.card .title {
+  min-width: 0;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .pagination-links a:hover {
