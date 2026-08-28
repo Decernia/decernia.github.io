@@ -320,6 +320,7 @@ const copy =
           status.textContent = successMessage;
           status.classList.remove('hidden', 'text-red-500');
           status.classList.add('text-green-600');
+          status.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
         form.reset();
         return;
@@ -363,6 +364,7 @@ const copy =
             status.textContent = successMessage;
             status.classList.remove('hidden', 'text-red-500');
             status.classList.add('text-green-600');
+            status.scrollIntoView({ behavior: 'smooth', block: 'center' });
           }
           form.reset();
         } else {
@@ -373,6 +375,7 @@ const copy =
           status.textContent = errorMessage;
           status.classList.remove('hidden', 'text-green-600');
           status.classList.add('text-red-500');
+          status.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
       } finally {
         if (submitBtn) {
