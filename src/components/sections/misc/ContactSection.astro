@@ -10,6 +10,9 @@ import { getMarketingLocale } from '@utils/locale';
 
 const locale = getMarketingLocale(Astro.url.pathname, Astro.currentLocale);
 
+// Vul hier je Web3Forms Access Key in (deze mag public zijn, is geen secret).
+const WEB3FORMS_ACCESS_KEY = 'JOUW-ACCESS-KEY-HIER';
+
 const copy =
   locale === 'en'
     ? {
@@ -28,8 +31,12 @@ const copy =
         subjectCustom: 'Custom Solution or Complex Portfolio',
         details: 'Your message or question',
         send: 'Send Message',
-        demoMessage:
-          'Thanks! (Demo only — wire a form endpoint to receive real messages.)',
+        successMessage:
+          'Thank you! We will get back to you within 1-2 business days.',
+        errorMessage:
+          'Something went wrong while sending. Please try again later or email us directly at info@decernia.nl.',
+        sendingMessage: 'Sending...',
+        emailSubjectPrefix: 'New message via decernia.nl',
         knowledgeHeading: 'Knowledgebase',
         knowledgeContent:
           'Browse through our insights and publications on system architecture.',
@@ -61,8 +68,11 @@ const copy =
         subjectCustom: 'Maatwerk of Complex Portfolio',
         details: 'Uw bericht of vraagstuk',
         send: 'Verstuur bericht',
-        demoMessage:
-          'Bedankt! (Demo — koppel een formulier-endpoint om berichten te ontvangen.)',
+        successMessage: 'Bedankt! We reageren binnen 1 tot 2 werkdagen.',
+        errorMessage:
+          'Er ging iets mis bij het versturen. Probeer het later opnieuw of mail ons rechtstreeks op info@decernia.nl.',
+        sendingMessage: 'Versturen...',
+        emailSubjectPrefix: 'Nieuw bericht via decernia.nl',
         knowledgeHeading: 'Kennisbank & Artikelen',
         knowledgeContent:
           'Bekijk onze inzichten en publicaties over stelselarchitectuur.',
@@ -100,7 +110,14 @@ const copy =
         >
           {copy.formTitle}
         </h2>
-        <form data-demo-form data-demo-message={copy.demoMessage}>
+        <form
+          id="contact-form"
+          data-success-message={copy.successMessage}
+          data-error-message={copy.errorMessage}
+          data-sending-message={copy.sendingMessage}
+          data-send-label={copy.send}
+          data-subject-prefix={copy.emailSubjectPrefix}
+        >
           <div class="grid gap-4">
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <TextInput
@@ -145,6 +162,27 @@ const copy =
               label={copy.details}
               name="hs-about-contacts"
             />
+
+            {
+              /* Honeypot: onzichtbaar voor mensen, wel invulbaar voor simpele bots.
+                Off-screen i.p.v. display:none, zodat ook bots die CSS-zichtbaarheid checken erin trappen. */
+            }
+            <div class="absolute -left-[9999px]" aria-hidden="true">
+              <label for="hs-website">Website</label>
+              <input
+                type="text"
+                id="hs-website"
+                name="botcheck"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
+
+            <input
+              type="hidden"
+              name="access_key"
+              value={WEB3FORMS_ACCESS_KEY}
+            />
           </div>
 
           <div class="mt-4 grid">
@@ -155,11 +193,7 @@ const copy =
             <p class="text-sm text-neutral-600 dark:text-neutral-400">
               {copy.formSubTitle}
             </p>
-            <p
-              class="mt-2 hidden text-sm text-orange-500 dark:text-orange-400"
-              data-demo-status
-              aria-live="polite"
-            >
+            <p class="mt-2 hidden text-sm" id="form-status" aria-live="polite">
             </p>
           </div>
         </form>
@@ -207,10 +241,9 @@ const copy =
   </div>
 </section>
 
-<!-- Client script dat de URL query direct uit de browser leest -->
+<!-- Client script: dropdown vooraf invullen via URL-param + Web3Forms submit -->
 <script is:inline>
   const updateDropdown = () => {
-    // 1. Haal de parameter direct uit de browser URL
     const urlParams = new URLSearchParams(window.location.search);
     const rawSubject =
       urlParams.get('subject') || urlParams.get('onderwerp') || '';
@@ -238,10 +271,8 @@ const copy =
     const selectEl = document.getElementById('hs-select-subject');
     if (!selectEl) return;
 
-    // 2. Zet de native HTML select waarde
     selectEl.value = targetValue;
 
-    // 3. Update Preline UI (indien actief)
     const applyPreline = () => {
       if (window.HSSelect) {
         const instance = window.HSSelect.getInstance(selectEl);
@@ -264,10 +295,103 @@ const copy =
     }
   };
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', updateDropdown);
-  } else {
+  const initContactForm = () => {
+    const form = document.getElementById('contact-form');
+    if (!form || form.dataset.bound === 'true') return;
+    form.dataset.bound = 'true';
+
+    const status = document.getElementById('form-status');
+    const submitBtn = form.querySelector('button[type="submit"], button');
+
+    const successMessage = form.dataset.successMessage || '';
+    const errorMessage = form.dataset.errorMessage || '';
+    const sendingMessage = form.dataset.sendingMessage || '';
+    const sendLabel = form.dataset.sendLabel || '';
+    const subjectPrefix = form.dataset.subjectPrefix || '';
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+
+      // Honeypot: als dit veld ingevuld is, doen we alsof het gelukt is
+      // en versturen we niets. Bots krijgen geen signaal dat ze gefaald zijn.
+      const honeypot = form.querySelector('input[name="botcheck"]');
+      if (honeypot && honeypot.value !== '') {
+        if (status) {
+          status.textContent = successMessage;
+          status.classList.remove('hidden', 'text-red-500');
+          status.classList.add('text-green-600');
+        }
+        form.reset();
+        return;
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.dataset.originalLabel = submitBtn.textContent || '';
+        submitBtn.textContent = sendingMessage;
+      }
+      if (status) {
+        status.textContent = '';
+        status.classList.add('hidden');
+      }
+
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData);
+
+      // Leesbaar onderwerp voor de e-mail, i.p.v. de interne dropdown-waarde
+      const selectEl = document.getElementById('hs-select-subject');
+      const subjectLabel =
+        selectEl && selectEl.selectedIndex >= 0
+          ? selectEl.options[selectEl.selectedIndex].text
+          : payload.subject;
+      payload.subject = `${subjectPrefix} – ${subjectLabel}`;
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          if (status) {
+            status.textContent = successMessage;
+            status.classList.remove('hidden', 'text-red-500');
+            status.classList.add('text-green-600');
+          }
+          form.reset();
+        } else {
+          throw new Error(result.message || 'Submit failed');
+        }
+      } catch (err) {
+        if (status) {
+          status.textContent = errorMessage;
+          status.classList.remove('hidden', 'text-green-600');
+          status.classList.add('text-red-500');
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = submitBtn.dataset.originalLabel || sendLabel;
+        }
+      }
+    });
+  };
+
+  const init = () => {
     updateDropdown();
+    initContactForm();
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
   }
-  document.addEventListener('astro:page-load', updateDropdown);
+  document.addEventListener('astro:page-load', init);
 </script>
