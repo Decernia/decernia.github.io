@@ -2,11 +2,12 @@ import ogImageSrc from '@images/social.png';
 
 export const SITE = {
   title: 'Decernia',
+  titleDefault: 'Decernia | Strategisch Advies & Architectuur',
   tagline: 'Strategisch advies & Architectuur',
   description:
-    'Decernia biedt hoogwaardig architectuuradvies en deskundige regie voor het succesvol realiseren van uw veranderopgaven. Verken ons instrumentarium en neem contact op voor een strategisch gesprek over uw digitale transformatie.',
-  description_short:
     'Decernia biedt hoogwaardig architectuuradvies en deskundige regie voor het succesvol realiseren van uw veranderopgaven.',
+  description_long:
+    'Decernia biedt hoogwaardig architectuuradvies en deskundige regie voor het succesvol realiseren van uw veranderopgaven. Verken ons instrumentarium en neem contact op voor een strategisch gesprek over uw digitale transformatie.',
   url: 'https://decernia.nl',
   author: 'Pieter van Gemeren',
 };

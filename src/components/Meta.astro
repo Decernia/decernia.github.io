@@ -23,7 +23,6 @@ const ogTitle = customOgTitle || OG.title;
 const ogDescription = customDescription || OG.description;
 
 // Define metadata links and URLs
-const siteURL = `${Astro.site}`;
 const author = SITE.author;
 const canonical = new URL(Astro.url.pathname, Astro.site || Astro.url.origin)
   .href;
@@ -36,21 +35,21 @@ const socialImageRes = await getImage({
 });
 const socialImage = Astro.url.origin + socialImageRes.src;
 
+// nl = default taal, geen prefix. en = /en/ prefix.
 const languages: { [key: string]: string } = {
-  en: '',
-  // Optioneel: voeg 'nl' toe indien je later een /nl/ route opzet
-  // nl: 'nl',
+  nl: '',
+  en: 'en',
 };
 
-function createHref(_lang: string, prefix: string, path: string): string {
-  // Remove any existing language prefix
-  const cleanPath = path.replace(/^\/(en|nl)\//, '/');
+function createHref(prefix: string, path: string): string {
+  // Haal een eventueel bestaand /en/ taalprefix weg, zodat we een "kale" NL-achtige path overhouden
+  const cleanPath = path.replace(/^\/en(\/|$)/, '/');
 
-  // Add the correct language prefix if needed
-  const basePath = prefix ? `/${prefix}${cleanPath}` : cleanPath;
-  const normalizedBasePath = basePath.replace(/\/\/+/g, '/');
+  // Zet er het juiste prefix weer voor (leeg voor nl, 'en' voor en)
+  const prefixedPath = prefix ? `/${prefix}${cleanPath}` : cleanPath;
+  const normalizedPath = prefixedPath.replace(/\/\/+/g, '/');
 
-  return `${siteURL.slice(0, -1)}${normalizedBasePath}`;
+  return new URL(normalizedPath, Astro.site || Astro.url.origin).href;
 }
 
 const fullPath: string = Astro.url.pathname;
@@ -75,17 +74,16 @@ const fullPath: string = Astro.url.pathname;
 <link rel="canonical" href={canonical} />
 
 {
-  Object.entries(languages).map(([lang, prefix]) => {
-    const cleanPath = fullPath.replace(/^\/(en|nl)\//, '/');
-    const href = createHref(lang, prefix, cleanPath);
-    return <link rel="alternate" hreflang={lang} href={href} />;
-  })
+  Object.entries(languages).map(([lang, prefix]) => (
+    <link rel="alternate" hreflang={lang} href={createHref(prefix, fullPath)} />
+  ))
 }
+<link rel="alternate" hreflang="x-default" href={createHref('', fullPath)} />
 
 {/* OpenGraph / Facebook Meta Tags */}
 <meta
   property="og:locale"
-  content={basePath.startsWith('/nl') ? 'nl_NL' : 'en_US'}
+  content={basePath.startsWith('/en') ? 'en_US' : 'nl_NL'}
 />
 <meta property="og:url" content={canonical} />
 <meta property="og:type" content="website" />
