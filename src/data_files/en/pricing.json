@@ -1,13 +1,13 @@
 {
-  "title": "Transparent Advisory Services",
+  "title": "Transparent advisory services",
   "subTitle": "Enhance your execution power with clear, value-driven services from Decernia.",
-  "badge": "Most Popular",
-  "thirdOption": "Customized or Complex Portfolio?",
-  "btnText": "Request a Tailored Proposal",
+  "badge": "Most popular",
+  "thirdOption": "Customized or complex portfolio?",
+  "btnText": "Request a tailored proposal",
   "btnLink": "/en/contact?subject=custom",
 
   "starterKit": {
-    "name": "Architecture Foundation",
+    "name": "Architecture foundation",
     "description": "Ideal for executing a specific transformation assignment",
     "price": "€490",
     "cents": ",00",
@@ -17,12 +17,12 @@
       "Access to proven guidelines",
       "Regular advisory support"
     ],
-    "purchaseBtnTitle": "Start with Foundation",
+    "purchaseBtnTitle": "Start with foundation",
     "purchaseLink": "/en/services/packages#foundation"
   },
 
   "professionalToolbox": {
-    "name": "Strategy & Governance",
+    "name": "Strategy & governance",
     "description": "Best choice for continuous support and complex transformations",
     "price": "€890",
     "cents": ",00",
@@ -33,7 +33,7 @@
       "Exclusive best practices & benchmark data",
       "Scalability benefits for long-term trajectories"
     ],
-    "purchaseBtnTitle": "Choose Strategy & Governance",
+    "purchaseBtnTitle": "Choose strategy & governance",
     "purchaseLink": "/en/services/packages#strategy-governance"
   }
 }

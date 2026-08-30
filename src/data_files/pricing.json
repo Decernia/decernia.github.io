@@ -1,13 +1,13 @@
 {
-  "title": "Transparante Adviesvormen",
+  "title": "Transparante adviesvormen",
   "subTitle": "Verhoog uw realisatiekracht met heldere, waardegedreven diensten van Decernia.",
   "badge": "Meest gekozen",
-  "thirdOption": "Maatwerk of Complex Portfolio?",
-  "btnText": "Vraag een Voorstel op Maat aan",
+  "thirdOption": "Maatwerk of complex portfolio?",
+  "btnText": "Vraag een voorstel op maat aan",
   "btnLink": "/contact?subject=custom",
 
   "starterKit": {
-    "name": "Architectuur Fundament",
+    "name": "Architectuur fundament",
     "description": "Ideaal voor de uitvoering van een specifieke veranderopgave",
     "price": "490",
     "cents": ",00",
@@ -17,12 +17,12 @@
       "Toegang tot beproefde richtlijnen",
       "Reguliere adviesondersteuning"
     ],
-    "purchaseBtnTitle": "Start met Fundament",
+    "purchaseBtnTitle": "Start met fundament",
     "purchaseLink": "/services/packages#fundament"
   },
 
   "professionalToolbox": {
-    "name": "Strategie & Regie",
+    "name": "Strategie & regie",
     "description": "Beste keus voor continue ondersteuning en complexe transformaties",
     "price": "890",
     "cents": ",00",
@@ -33,7 +33,7 @@
       "Exclusieve best-practices & benchmarkdata",
       "Schalingsvoordeel bij langdurige trajecten"
     ],
-    "purchaseBtnTitle": "Kies Strategie & Regie",
+    "purchaseBtnTitle": "Kies strategie & regie",
     "purchaseLink": "/services/packages#strategie-regie"
   }
 }
