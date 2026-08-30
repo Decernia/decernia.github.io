@@ -51,7 +51,7 @@ export default defineConfig({
         {
           label: 'Architectuur & Kaders',
           items: [
-            { label: 'Overzicht', link: 'architecture/overzicht/' },
+            { label: 'Overzicht', link: 'architecture/overview/' },
             {
               label: 'Capability Mapping',
               link: 'architecture/capability-mapping/',
