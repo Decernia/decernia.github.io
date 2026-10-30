@@ -1,10 +1,10 @@
 ---
 title: 'Snel resultaat boeken en binnen Budget blijven met Decernia'
 description: 'Doelgerichte architectuurproducten voor voorspelbare veranderopgaven'
-author: 'Olga Zabegina'
-role: 'Strategic Marketing Manager'
-authorImage: '@/images/blog/anna.avif'
-authorImageAlt: 'Portret van Olga Zabegina'
+author: 'Pieter van Gemeren'
+role: 'Enterprise Architect'
+authorImage: '@/images/blog/pieter.avif'
+authorImageAlt: 'Portret van Pieter van Gemeren'
 pubDate: 2026-02-18
 cardImage: '@/images/blog/post-3.avif'
 cardImageAlt: 'Effectieve ketenafstemming en pragmatische stelselarchitectuur'

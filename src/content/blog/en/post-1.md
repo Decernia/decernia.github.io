@@ -1,9 +1,9 @@
 ---
 title: "Enhancing Control and Governance with Decernia's Architecture Products"
 description: 'Mastering Complexity through Thoughtful Frameworks & Executive Governance'
-author: 'Jacob'
-authorImage: '@/images/blog/jacob.avif'
-authorImageAlt: 'Portrait of Jacob'
+author: 'Pieter van Gemeren'
+authorImage: '@/images/blog/pieter.avif'
+authorImageAlt: 'Portrait of Pieter vab Gemeren'
 pubDate: 2026-02-06
 cardImage: '@/images/blog/post-1.avif'
 cardImageAlt: 'Strategic architecture vision and network models'

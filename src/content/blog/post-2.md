@@ -1,9 +1,9 @@
 ---
 title: 'Borging van kwaliteit en beheersbaarheid met de Adviesdiensten van Decernia'
 description: 'Gedegen stelselarchitectuur voor duurzame en voorspelbare resultaten'
-author: 'Brad'
-authorImage: '@/images/blog/brad.avif'
-authorImageAlt: 'Portret van Brad'
+author: 'Pieter van Gemeren'
+authorImage: '@/images/blog/pieter.avif'
+authorImageAlt: 'Portret van Pieter van Gemeren'
 pubDate: 2026-02-10
 cardImage: '@/images/blog/post-2.avif'
 cardImageAlt: 'Bestuurlijke advisering en ketenregie in de praktijk'

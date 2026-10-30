@@ -1,9 +1,9 @@
 ---
 title: "Ensuring Quality and Control with Decernia's Advisory Services"
 description: 'Robust ecosystem and network architecture for sustainable and predictable results'
-author: 'Brad'
-authorImage: '@/images/blog/brad.avif'
-authorImageAlt: 'Portrait of Brad'
+author: 'Pieter van Gemeren'
+authorImage: '@/images/blog/pieter.avif'
+authorImageAlt: 'Portrait of Pieter van Gemeren'
 pubDate: 2026-02-10
 cardImage: '@/images/blog/post-2.avif'
 cardImageAlt: 'Executive advisory and network orchestration in practice'

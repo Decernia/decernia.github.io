@@ -1,10 +1,10 @@
 ---
 title: 'Achieving Quick Results and Staying Within Budget with Decernia'
 description: 'Goal-oriented architecture products for predictable transformation initiatives'
-author: 'Olga Zabegina'
-role: 'Strategic Marketing Manager'
-authorImage: '@/images/blog/anna.avif'
-authorImageAlt: 'Portrait of Olga Zabegina'
+author: 'Pieter van Gemeren'
+role: 'Enterprise Architect'
+authorImage: '@/images/blog/pieter.avif'
+authorImageAlt: 'Portrait of Pieter van Gemeren'
 pubDate: 2026-02-18
 cardImage: '@/images/blog/post-3.avif'
 cardImageAlt: 'Effective ecosystem alignment and pragmatic enterprise architecture'

@@ -1,9 +1,9 @@
 ---
 title: 'Grip en regie vergroten met de Architectuurproducten van Decernia'
 description: 'Complexiteit Beheersen via Doordachte Kaders & Bestuurlijke Regie'
-author: 'Jacob'
-authorImage: '@/images/blog/jacob.avif'
-authorImageAlt: 'Portret van Jacob'
+author: 'Pieter van Gemeren'
+authorImage: '@/images/blog/pieter.avif'
+authorImageAlt: 'Portret van Pieter van Gemeren'
 pubDate: 2026-02-06
 cardImage: '@/images/blog/post-1.avif'
 cardImageAlt: 'Strategische architectuurvisie en netwerkmodellen'
